@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let item of menu">
+      <a (click)="statusChange(item)" routerLink="{{item.link}}" [ngClass]="{'selected': item.selected}"
+        href="javascript:void(0)">{{item.name}}</a>
+    </li>
+  </ul>

@@ -1,0 +1,29 @@
+<footer>
+  <div>
+    <img class="title" alt="{{titleAlt}}" src="{{titleSource}}">
+    <ul>
+      <li>
+        <h3>{{hospitalGuide.title}}</h3>
+        <ul>
+          <li *ngFor="let item of hospitalGuide.items">
+            <a [routerLink]="[item.link.path]" [queryParams]="{to: item.link.to}" href="javascript:void(0)">{{item.name}}</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>{{contactUs.title}}</h3>
+        <ul>
+          <li *ngFor="let item of contactUs.items">
+            <label>{{item.name}}</label>
+            <span>{{item.value}}</span>
+          </li>
+        </ul>
+      </li>
+      <li class="weixin">
+        <img src="{{weixin.img.source}}"><br>
+        <span>{{weixin.describe}}</span>
+      </li>
+    </ul>
+    <div>{{ICPInfo}}</div>
+  </div>
+</footer>
