@@ -46,8 +46,12 @@ footer>div>ul>li {
     float: left;
     font-size: 14px;
     padding: 0px 70px;
-    max-width: 460px;
+    max-width: 480px;
     box-sizing: border-box;
+}
+
+footer>div>ul>li:last-child {
+    padding-right: 10px;
 }
 
 footer>div>ul>li>ul>li {

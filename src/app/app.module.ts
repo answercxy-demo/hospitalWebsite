@@ -39,11 +39,6 @@ import { FastNavComponent } from './view/fast-nav/fast-nav.component';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
-    HeroSearchComponent,
     HeaderComponent,
     FooterComponent,
     TopMenuComponent,
