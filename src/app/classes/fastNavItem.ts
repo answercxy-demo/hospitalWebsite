@@ -4,4 +4,5 @@ export class FastNavItem {
     describe: string;
     bg: string;
     link: string;
+    to: string;
 }

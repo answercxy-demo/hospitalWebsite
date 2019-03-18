@@ -77,3 +77,15 @@ button:disabled {
 /* Navigation link styles */
 
 /* everywhere else */
+
+.bg-green {
+  background-color: #39AF78;
+}
+
+.bg-orange {
+  background-color: #F36F49;
+}
+
+.bg-blue {
+  background-color: #00ACDB
+}

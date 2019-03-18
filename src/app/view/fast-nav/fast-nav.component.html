@@ -1,3 +1,7 @@
 <ul>
-  <li></li>
+  <li *ngFor="let item of fastNav">
+    <a class="bg-{{item.bg}}" [routerLink]="[item.link]" [queryParams]="{to: item.to}">
+      <h2>{{item.name}}</h2>
+    </a>
+  </li>
 </ul>
