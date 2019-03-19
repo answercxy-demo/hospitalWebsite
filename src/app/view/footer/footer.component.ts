@@ -10,7 +10,7 @@ export class FooterComponent implements OnInit {
   titleAlt = '兴义人安精神病医院';
 
   //titleSource = 'http://www.xyrenan.com/img/images/footer_xwtp_06.png';
-  titleSource = '//localhost/toh-pt6/src/static/img/bottom_title.png';
+  titleSource = '//localhost/hospitalWebsite/src/static/img/bottom_title.png';
 
   ICPInfo = 'ICP备案信息：黔ICP备18010977号';
 
