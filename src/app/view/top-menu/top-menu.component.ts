@@ -48,7 +48,7 @@ export class TopMenuComponent implements OnInit {
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
-    private location: Location,) { }
+    private location: Location, ) { }
 
   ngOnInit() {
     this.router.events
@@ -60,14 +60,16 @@ export class TopMenuComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe((event) => { this.statusChange(location.pathname)});
+      .subscribe((event) => { this.statusChange(location.pathname) });
   }
 
   statusChange(link: string): MenuItem {
+    let reg;
     let selectedItem;
 
     for (const item of this.menu) {
-      if (item.link === link) {
+      reg = new RegExp(item.link + '$')
+      if (reg.test(link)) {
         item.selected = true;
         selectedItem = item;
         continue;

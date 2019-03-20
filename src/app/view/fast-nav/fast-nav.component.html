@@ -1,6 +1,6 @@
-<ul>
+<ul class="content">
   <li *ngFor="let item of fastNav">
-    <a class="bg-{{item.bg}}" [routerLink]="[item.link]" [queryParams]="{to: item.to}">
+    <a class="w-100 h-100 bg-{{item.bg}}" [routerLink]="[item.link]" [queryParams]="{to: item.to}">
       <img src="//localhost/hospitalWebsite/src/static/icon/icon-{{item.icon}}.png">
       <h2>{{item.name}}</h2>
       <h4>{{item.describe}}</h4>

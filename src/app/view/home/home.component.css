@@ -1,10 +1,19 @@
+h1, h2, h3, h4 {
+    font-weight: 400;
+}
+
+a {
+    transition: color 0.3s;
+}
+
 .index-content {
     margin-top: 150px;
     margin-bottom: 50px;
 }
 
 .news-content, .about-content, .env-content, .disease-content {
-    margin: 50px auto; 
+    margin: 50px auto;
+    overflow-x: hidden;
 }
 
 .news-content {
@@ -12,29 +21,71 @@
     height: 580px;
 }
 
-.news-content>.content>ul {
-    height: 100%;
+.news-content h1, .news-content h2, .news-content h3, .news-content h4 {
+    margin: 0
 }
 
 .news-content>.content>ul>li {
-    height: 100%;
+    position: relative;
 }
 
 .news-content>.content>ul>li:nth-child(1) {
     width: 30%;
 }
 
+.news-content>.content>ul>li:nth-child(1)>div {
+    width: 1920px;
+    height: 1px;
+    background-color: #888888;
+    position: absolute;
+    top: 50%;
+    right: 37%;
+}
+
+.news-content>.content>ul>li:nth-child(1)>h2, .news-content>.content>ul>li:nth-child(1)>h3 {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.news-content>.content>ul>li:nth-child(1)>h2 {
+    transform: translate(-50%, -80px);
+}
+
+.news-content>.content>ul>li:nth-child(1)>h3 {
+    transform: translate(-50%, -40px);
+}
+
 .news-content>.content>ul>li:nth-child(2) {
     width: 35%;
+}
+
+.news-content>.content>ul>li:nth-child(2)>ul>li {
+    height: 25%;
+}
+
+.news-content>.content>ul>li:nth-child(2)>ul>li h3 {
+    line-height: 1.6em;
+}
+
+.news-content>.content>ul>li:nth-child(2)>ul>li span {
+    line-height: 2em;
 }
 
 .news-content>.content>ul>li:nth-child(3) {
     width: 35%;
 }
 
-.content {
-    width: 1260px;
-    height: 100%;
+.news-content>.content>ul>li:nth-child(3)>div:first-child {
+    background: linear-gradient(30deg, transparent 300px, #58a 0) right, linear-gradient(-30deg, transparent 30px, #f0f 0) left;
+    transform: scaleX(1.2);
+}
+
+.about-content video {
     margin: auto;
+}
+
+.index-content .content {
     padding: 50px 0px;
 }

@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
         month: 9,
         day: 20,
         title: '测试',
-        content: '内容截取'
+        content: '内容截取超级长超级长超级长超级长超级长超级长超级长超级长'
       }, {
         year: 2018,
         month: 9,
@@ -59,11 +59,11 @@ export class HomeComponent implements OnInit {
     },
     video: {
       source: {
-        src: '',
-        type: ''
+        src: 'https://107.cdn-vod.huaweicloud.com/asset/2b8ab25bcb75eaebdae188a1013f90a1/670c035f6e416c67f3e5dc2ff2fe070c.mp4',
+        type: 'video/mp4'
       },
-      width:'',
-      height:''
+      width: 640,
+      height:360
     }
   }
 

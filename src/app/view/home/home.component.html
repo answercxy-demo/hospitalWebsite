@@ -6,18 +6,47 @@
     <!-- 新闻动态 -->
     <div class="news-content bg-grey">
         <div class="content">
-            <ul class="x-list">
-                <li></li>
-                <li></li>
-                <li></li>
+            <ul class="x-list h-100">
+                <!-- 新闻动态标题 -->
+                <li class="h-100">
+                    <h2>{{news_module.title.main}}</h2>
+                    <h3 class="blue">{{news_module.title.vice}}</h3>
+                    <div></div>
+                </li>
+                <!-- 新闻列表 -->
+                <li class="h-100">
+                    <ul class="h-100">
+                        <li *ngFor="let item of news_module.list">
+                            <ul class="x-list h-100">
+                                <li class="w-20 h-100 pdTop-md t-center">
+                                    <h1 class="blue">{{item.day}}</h1>
+                                    <span>{{item.year}}年{{item.month}}月</span>
+                                </li>
+                                <li class="w-80 h-100 pdLeft-md pdTop-lg ellipsis-line">
+                                    <a>
+                                        <h3>{{item.title}}</h3>
+                                        <span>{{item.content}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 新闻动态图片 -->
+                <li class="h-100">
+                    <div class="h-100 w-100">
+                        <img class="">
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 
     <!-- 了解人安 -->
-    <div class="about-content">
-        
-        <video controls width="{{about_module.video.width}}" height="{{about_module.video.height}}">
+    <div class="about-content t-center">
+        <h2 class="t-center mgBottom-sm pdTop-lg">{{about_module.title.main}}</h2>
+        <h3 class="blue t-center mgTop-sm">{{about_module.title.vice}}</h3>
+        <video class="mgTop-sm" controls width="{{about_module.video.width}}" height="{{about_module.video.height}}">
             <source src="{{about_module.video.source.src}}" type="{{about_module.video.source.type}}">
         </video>
     </div>
