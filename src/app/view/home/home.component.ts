@@ -70,8 +70,8 @@ export class HomeComponent implements OnInit {
   // 就医环境模块
   env_module = {
     title: {
-      main: '',
-      vice: ''
+      main: '就医环境',
+      vice: 'ENVIROMENT'
     },
     items: []
   }
@@ -79,8 +79,8 @@ export class HomeComponent implements OnInit {
   // 疾病科普模块
   disease_module = {
     title: {
-      main: '',
-      vice: ''
+      main: '疾病科普',
+      vice: 'DISEASE SCIENCE'
     },
     items: [
       {
