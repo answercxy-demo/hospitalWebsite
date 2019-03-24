@@ -1,3 +1,17 @@
-<p>
-  department-info works!
-</p>
+<app-banners></app-banners>
+<app-fast-nav></app-fast-nav>
+<div class="content">
+  <app-home-title [title]="title"></app-home-title>
+  <div class="x-list mgTop-lg">
+    <article class="ellipsis-line" *ngFor="let item of items">
+      <a class="w-100 h-100 t-center" [routerLink]="[ '/departmentInfoDetail/'+item.id]" [queryParams]="{name: item.name}"
+        href="javascript:void(0)">
+        <i class="t-center">
+            <
+              </i>
+        {{item.name}}
+      </a>
+    </article>
+  </div>
+  <div class="f-clear"></div>
+</div>

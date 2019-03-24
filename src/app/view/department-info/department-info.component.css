@@ -1,0 +1,47 @@
+.content {
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
+.content article {
+    position: relative;
+    width: 172px;
+    height: 42px;
+    line-height: 42px;
+    margin-right: 100px;
+    margin-bottom: 80px;
+}
+
+.content article:nth-child(5n) {
+    margin-right: 0;
+}
+
+.content article a {
+    color: #333333;
+    display: block;
+    border: solid #cccccc thin;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.content article a:hover {
+    background: #00ACDB;
+    border: none;
+    color: #ffffff;
+}
+
+.content article a:hover i {
+    border-color: #ffffff; 
+    color: #ffffff;
+}
+
+.content article i {
+    color: #aaaaaa;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 15px;
+    border-right: thin solid #cccccc;
+    transition: all 0.3s;
+}

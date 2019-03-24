@@ -10,7 +10,7 @@ export class FooterComponent implements OnInit {
   titleAlt = '兴义人安精神病医院';
 
   //titleSource = 'http://www.xyrenan.com/img/images/footer_xwtp_06.png';
-  titleSource = '//localhost/hospitalWebsite/src/static/img/bottom_title.png';
+  titleSource = '../../../assets/img/bottom_title.png';
 
   ICPInfo = 'ICP备案信息：黔ICP备18010977号';
 
@@ -60,7 +60,7 @@ export class FooterComponent implements OnInit {
   weixin = {
     img: {
       //source: 'http://www.xyrenan.com/img/images/footer_xwtp_08.png',
-      source: '//localhost/toh-pt6/src/static/img/weixin.png',
+      source: '../../../assets/img/weixin.png',
       width: 100,
       height: 100
     },

@@ -9,8 +9,8 @@
             <ul class="x-list h-100">
                 <!-- 新闻动态标题 -->
                 <li class="h-100">
-                    <h2>{{news_module.title.main}}</h2>
-                    <h3 class="blue">{{news_module.title.vice}}</h3>
+                    <h2 class="spacing">{{news_module.title.main}}</h2>
+                    <h3 class="spacing">{{news_module.title.vice}}</h3>
                     <div></div>
                 </li>
                 <!-- 新闻列表 -->
@@ -19,12 +19,13 @@
                         <li *ngFor="let item of news_module.list">
                             <ul class="x-list h-100">
                                 <li class="w-20 h-100 pdTop-md t-center">
-                                    <h1 class="blue">{{item.day}}</h1>
+                                    <h1 class="spacing blue">{{item.day}}</h1>
                                     <span>{{item.year}}年{{item.month}}月</span>
                                 </li>
                                 <li class="w-80 h-100 pdLeft-md pdTop-lg ellipsis-line">
-                                    <a>
-                                        <h3>{{item.title}}</h3>
+                                    <a href="javascript:vodi(0)" [routerLink]="[ '/newsDetail/' + item.id ]"
+                                        [queryParams]="{title: item.title}">
+                                        <h3 class="spacing">{{item.title}}</h3>
                                         <span>{{item.content}}</span>
                                     </a>
                                 </li>
@@ -35,7 +36,8 @@
                 <!-- 新闻动态图片 -->
                 <li class="h-100">
                     <div class="h-100 w-100">
-                        <img class="">
+                        <div *ngFor="let item of news_module.show.sources" class="h-48 w-90"
+                            style="background: url({{item.src}}) no-repeat cover"></div>
                     </div>
                 </li>
             </ul>
@@ -44,8 +46,7 @@
 
     <!-- 了解人安 -->
     <div class="about-content t-center">
-        <h2 class="t-center mgBottom-sm pdTop-lg">{{about_module.title.main}}</h2>
-        <h3 class="blue t-center mgTop-sm">{{about_module.title.vice}}</h3>
+        <app-home-title [title]="about_module.title"></app-home-title>
         <video controls width="{{about_module.video.width}}" height="{{about_module.video.height}}">
             <source src="{{about_module.video.source.src}}" type="{{about_module.video.source.type}}">
         </video>
@@ -53,16 +54,24 @@
 
     <!-- 就医环境 -->
     <div class="env-content">
-        <h2 class="t-center mgBottom-sm pdTop-lg">{{env_module.title.main}}</h2>
-        <h3 class="blue t-center mgTop-sm">{{env_module.title.vice}}</h3>
+        <app-home-title [title]="env_module.title"></app-home-title>
+        <div class="w-100">
+            <ul class="x-list h-100">
+                <li *ngFor="let item of env_module.items" class="w-25 h-100"
+                    style="background: url({{item.src}}) no-repeat cover">1</li>
+            </ul>
+        </div>
     </div>
 
     <!-- 疾病科普 -->
     <div class="disease-content">
-        <h2 class="t-center mgBottom-sm pdTop-lg">{{disease_module.title.main}}</h2>
-        <h3 class="blue t-center mgTop-sm">{{disease_module.title.vice}}</h3>
-        <div class="content">
-
+        <app-home-title [title]="disease_module.title"></app-home-title>
+        <div class="content x-list">
+            <article *ngFor="let item of disease_module.items"
+                [ngStyle]="{'background': 'url(' + item.img + ') no-repeat cover'}">
+                <a class="w-100 h-100" [routerLink]="[ '/diseaseDetail/' + item.id ]" [queryParams]="{name: item.name}"
+                    [ngStyle]="{'background-color': item.color+'999'}" href="javascript:void(0)">{{item.name}}</a>
+            </article>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -15,24 +16,28 @@ export class HomeComponent implements OnInit {
     },
     list: [
       {
+        id: '1',
         year: 2018,
         month: 9,
         day: 20,
         title: '测试',
         content: '内容截取'
       }, {
+        id: '2',
         year: 2018,
         month: 9,
         day: 20,
         title: '测试',
         content: '内容截取超级长超级长超级长超级长超级长超级长超级长超级长'
       }, {
+        id: '3',
         year: 2018,
         month: 9,
         day: 20,
         title: '测试',
         content: '内容截取'
       }, {
+        id: '4',
         year: 2018,
         month: 9,
         day: 20,
@@ -63,7 +68,7 @@ export class HomeComponent implements OnInit {
         type: 'video/mp4'
       },
       width: 640,
-      height:360
+      height: 360
     }
   }
 
@@ -73,7 +78,17 @@ export class HomeComponent implements OnInit {
       main: '就医环境',
       vice: 'ENVIROMENT'
     },
-    items: []
+    items: [
+      {
+        src: ''
+      }, {
+        src: ''
+      }, {
+        src: ''
+      }, {
+        src: ''
+      }
+    ]
   }
 
   // 疾病科普模块
@@ -84,16 +99,33 @@ export class HomeComponent implements OnInit {
     },
     items: [
       {
+        id: '999',
         name: '',
         img: '',
-        color: ''
+        color: '',
       }
     ]
   }
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    for (let i = 0; i < 10; i++) {
+      this.disease_module.items.push({
+        id: String(i),
+        name: '疾病' + i,
+        img: 'b' + i,
+        color: '#' + String(i) + String(i) + String(i)
+      });
+    }
+
+    this.getTest();
+  }
+
+  getTest(): void{
+    this.homeService.getTest().subscribe((test)=>{
+      console.log(test);
+    })
   }
 
 }
