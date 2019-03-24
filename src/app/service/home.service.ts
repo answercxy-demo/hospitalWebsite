@@ -2,21 +2,141 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { UtilServiceService } from './util-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
 
-  constructor(private http: HttpClient) { }
+  host = 'http://www.xiyubaba.com:8083/psychiatricHospital/exrenal/';
 
-  getTest(): Observable<any> {
-    return this.http.get<any>('http://127.0.0.1/fixtures/test.php')
+  constructor(private http: HttpClient,
+    private utilServiceService: UtilServiceService) { }
+
+  /**
+   * @description: 测试获取远端数据
+   * @param {} 
+   * @return: 
+   */
+  getTest(options = {}): Observable<any> {
+    const api = 'test.php';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
       .pipe(
         tap(_ => {
           //do something for current status
         }),
         catchError(this.handleError<any>('getTest', {}))
+      );
+  }
+
+  /**
+   * @description: 获取疾病列表
+   * @param {} 
+   * @return: 
+   */
+  getDiseaseList(options = {}): Observable<any> {
+    const api = 'disease/homePageLoading';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getDiseaseList', {}))
+      );
+  }
+
+  /**
+   * @description: 获取疾病详情
+   * @param {} 
+   * @return: 
+   */
+  getDiseaseDetail(options = {}): Observable<any> {
+    const api = 'disease/homePageClick';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getDiseaseDetail', {}))
+      );
+  }
+
+  /**
+   * @description: 获取前4条新闻列表
+   * @param {} 
+   * @return: 
+   */
+  getLatestNewsList(options = {}): Observable<any> {
+    const api = 'topNews/homePageLoading';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getLatestNewsList', {}))
+      );
+  }
+
+  /**
+   * @description -获取新闻详情
+   * @param options 
+   * @return: 
+   */
+  getNewsDetail(options = {}): Observable<any> {
+    const api = 'topNews/homePageClick';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getNewsDetail', {}))
+      );
+  }
+
+  /**
+   * @description: 获取科室信息列表
+   * @param {} 
+   * @return: 
+   */
+  getDepartmentList(options = {}): Observable<any> {
+    const api = 'section/navigationBarClick';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getDepartmentList', {}))
+      );
+  }
+
+  /**
+   * @description -获取新闻详情
+   * @param options 
+   * @return: 
+   */
+  getDepartmentDetail(options = {}): Observable<any> {
+    const api = 'section/sectionNameClick';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getDepartmentDetail', {}))
       );
   }
 

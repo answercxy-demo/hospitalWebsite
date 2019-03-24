@@ -69,8 +69,8 @@
         <div class="content x-list">
             <article *ngFor="let item of disease_module.items"
                 [ngStyle]="{'background': 'url(' + item.img + ') no-repeat cover'}">
-                <a class="w-100 h-100" [routerLink]="[ '/diseaseDetail/' + item.id ]" [queryParams]="{name: item.name}"
-                    [ngStyle]="{'background-color': item.color+'999'}" href="javascript:void(0)">{{item.name}}</a>
+                <a class="w-100 h-100 ellipsis-line" [routerLink]="[ '/diseaseDetail/' + item.id ]" [queryParams]="{name: item.name}"
+                    [ngStyle]="{'background-color': item.color}" href="javascript:void(0)" title="{{item.name}}">{{item.name}}</a>
             </article>
         </div>
     </div>

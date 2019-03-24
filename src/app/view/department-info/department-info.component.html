@@ -4,8 +4,8 @@
   <app-home-title [title]="title"></app-home-title>
   <div class="x-list mgTop-lg">
     <article class="ellipsis-line" *ngFor="let item of items">
-      <a class="w-100 h-100 t-center" [routerLink]="[ '/departmentInfoDetail/'+item.id]" [queryParams]="{name: item.name}"
-        href="javascript:void(0)">
+      <a class="w-100 h-100 t-center pdLeft-sm pdRight-sm ellipsis-line" [routerLink]="[ '/departmentInfoDetail/'+item.id]" [queryParams]="{name: item.name}"
+        href="javascript:void(0)" title="{{item.name}}">
         <i class="t-center">
             <
               </i>

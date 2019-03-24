@@ -1,14 +1,15 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 //import { InMemoryDataService }  from './service/in-memory-data.service';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent }         from './app.component';
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './view/header/header.component';
 import { FooterComponent } from './view/footer/footer.component';
 import { TopMenuComponent } from './view/top-menu/top-menu.component';
@@ -34,6 +35,7 @@ import { DepartmentInfoDetailComponent } from './view/department-info-detail/dep
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -62,6 +64,6 @@ import { DepartmentInfoDetailComponent } from './view/department-info-detail/dep
     PageNotFoundComponent,
     DepartmentInfoDetailComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

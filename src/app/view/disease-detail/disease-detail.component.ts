@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-disease-detail',
@@ -12,9 +13,20 @@ export class DiseaseDetailComponent implements OnInit {
 
   name = this.route.snapshot.queryParamMap.get('name');
 
-  constructor(private route: ActivatedRoute) { }
+  content = '<h1>就</h1>';
+
+  constructor(private route: ActivatedRoute, private homeService: HomeService) { }
 
   ngOnInit() {
+
+    this.getDisease();
+
+  }
+
+  getDisease(): void {
+    this.homeService.getDiseaseDetail({ id: this.id }).subscribe((item) => {
+      document.getElementById(this.id).innerHTML = item.dContents;
+    });
   }
 
 }

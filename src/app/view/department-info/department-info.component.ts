@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-department-info',
@@ -12,17 +13,34 @@ export class DepartmentInfoComponent implements OnInit {
     vice: 'DEPARTMENT'
   }
 
-  items = [];
+  items = [{
+    id: 456,
+    name: '一个名字很长的科室很长很长那种'
+  }];
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    for (let i = 0; i < 18; i++) {
-      this.items.push({
-        id: i,
-        name: `科室${i}`
-      });
-    }
+
+    this.getDepartmentList();
+
+  }
+
+  /**
+   * 获取部门列表信息
+   */
+  getDepartmentList(): void {
+    this.homeService.getDiseaseDetail().subscribe((items) => {
+      
+      // 构造科室信息列表数据
+      for (let item of items) {
+        this.items.push({
+          id: item.id,
+          name: item.sName
+        });
+      }
+
+    });
   }
 
 }

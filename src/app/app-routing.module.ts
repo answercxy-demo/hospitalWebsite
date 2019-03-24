@@ -24,9 +24,9 @@ const routes: Routes = [
   { path: 'hospitalGuide', component: HospitalGuideComponent },
   { path: 'hospitalRecruit', component: HospitalRecruitComponent },
   { path: 'hospitalEnv', component: HospitalEnvComponent },
-  { path: 'newsDetail/:id', component: NewsDetailComponent, data: { from: 'home' } },
-  { path: 'diseaseDetail/:id', component: DiseaseDetailComponent, data: { from: 'home' } },
-  { path: 'departmentInfoDetail/:id', component: DepartmentInfoDetailComponent, data: { from: 'departmentInfo' } },
+  { path: 'newsDetail/:id', component: NewsDetailComponent, data: { from: '/home' } },
+  { path: 'diseaseDetail/:id', component: DiseaseDetailComponent, data: { from: '/home' } },
+  { path: 'departmentInfoDetail/:id', component: DepartmentInfoDetailComponent, data: { from: '/departmentInfo' } },
   { path: '**', component: PageNotFoundComponent }
 ];
 

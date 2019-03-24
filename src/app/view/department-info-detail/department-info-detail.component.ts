@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-department-info-detail',
@@ -12,9 +13,16 @@ export class DepartmentInfoDetailComponent implements OnInit {
 
   name = this.route.snapshot.queryParamMap.get('name');
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private homeService: HomeService) { }
 
   ngOnInit() {
+    this.getDepartmentDetail();
+  }
+
+  getDepartmentDetail(): void {
+    this.homeService.getDepartmentDetail({ id: this.id }).subscribe((item) => {
+      document.getElementById(this.id).innerHTML = item.sContent;
+    });
   }
 
 }

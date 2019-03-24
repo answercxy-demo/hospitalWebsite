@@ -14,45 +14,9 @@ export class HomeComponent implements OnInit {
       main: '新闻动态',
       vice: 'NEWS'
     },
-    list: [
-      {
-        id: '1',
-        year: 2018,
-        month: 9,
-        day: 20,
-        title: '测试',
-        content: '内容截取'
-      }, {
-        id: '2',
-        year: 2018,
-        month: 9,
-        day: 20,
-        title: '测试',
-        content: '内容截取超级长超级长超级长超级长超级长超级长超级长超级长'
-      }, {
-        id: '3',
-        year: 2018,
-        month: 9,
-        day: 20,
-        title: '测试',
-        content: '内容截取'
-      }, {
-        id: '4',
-        year: 2018,
-        month: 9,
-        day: 20,
-        title: '测试',
-        content: '内容截取'
-      }
-    ],
+    list: [],
     show: {
-      sources: [
-        {
-          src: ''
-        }, {
-          src: ''
-        }
-      ]
+      sources: []
     }
   }
 
@@ -97,35 +61,88 @@ export class HomeComponent implements OnInit {
       main: '疾病科普',
       vice: 'DISEASE SCIENCE'
     },
-    items: [
-      {
-        id: '999',
-        name: '',
-        img: '',
-        color: '',
-      }
-    ]
+    items: []
   }
 
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    for (let i = 0; i < 10; i++) {
-      this.disease_module.items.push({
-        id: String(i),
-        name: '疾病' + i,
-        img: 'b' + i,
-        color: '#' + String(i) + String(i) + String(i)
-      });
-    }
+
 
     this.getTest();
+
+    this.getDiseaseList();
+
+    this.getLatestNewsList();
   }
 
-  getTest(): void{
-    this.homeService.getTest().subscribe((test)=>{
+  /**
+   * @description: 获取测试数据 
+   * @param {type} 
+   * @return: 
+   */
+  getTest(): void {
+    this.homeService.getTest().subscribe((test) => {
       console.log(test);
-    })
+    });
+  }
+
+  /**
+   * @description - 获取疾病科普列表信息 
+   * @param {type} 
+   * @return: 
+   */
+  getDiseaseList(): void {
+
+    this.homeService.getDiseaseList().subscribe((items) => {
+      for (let item of items) {
+
+        // 疾病科普列表构造
+        this.disease_module.items.push({
+          id: item.id,
+          name: item.dName,
+          img: item.PhotographStore.sUrl,
+          color: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1)`
+        });
+
+      }
+    });
+
+  }
+
+  /**
+   * @description: 获取最近新闻列表信息 
+   * @param {type} 
+   * @return: 
+   */
+  getLatestNewsList(): void {
+    this.homeService.getLatestNewsList().subscribe((list) => {
+
+      for (let item of list) {
+        // 新闻列表构造
+        this.news_module.list.push({
+          id: item.id,
+          year: item.primeTime.substr(0, 4),
+          month: item.primeTime.substr(5, 2),
+          day: item.primeTime.substr(8, 2),
+          title: item.headline,
+          content: item.particulars.substr(0, 50)
+        });
+
+        // 新闻列表展示图片构造
+        if (!!item.pictrueDetails) {
+          for (let source of item.pictrueDetails) {
+            if (this.news_module.show.sources.length < 2) {
+              this.news_module.show.sources.push({
+                src: source.sUrl
+              })
+            }
+          }
+        }
+
+      }
+
+    });
   }
 
 }
