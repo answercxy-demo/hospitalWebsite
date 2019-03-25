@@ -13,10 +13,7 @@ export class DepartmentInfoComponent implements OnInit {
     vice: 'DEPARTMENT'
   }
 
-  items = [{
-    id: 456,
-    name: '一个名字很长的科室很长很长那种'
-  }];
+  items = [];
 
   constructor(private homeService: HomeService) { }
 
@@ -30,7 +27,7 @@ export class DepartmentInfoComponent implements OnInit {
    * 获取部门列表信息
    */
   getDepartmentList(): void {
-    this.homeService.getDiseaseDetail().subscribe((items) => {
+    this.homeService.getDepartmentList().subscribe((items) => {
       
       // 构造科室信息列表数据
       for (let item of items) {

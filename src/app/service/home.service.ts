@@ -9,28 +9,12 @@ import { UtilServiceService } from './util-service.service';
 })
 export class HomeService {
 
-  host = 'http://www.xiyubaba.com:8083/psychiatricHospital/exrenal/';
+  //host = 'http://www.xiyubaba.com:8083/psychiatricHospital/exrenal/';
+  //host = '//127.0.0.1/fixtures/hospital/';
+  host = '//www.xiyubaba.com/fixtures/hospital/';
 
   constructor(private http: HttpClient,
     private utilServiceService: UtilServiceService) { }
-
-  /**
-   * @description: 测试获取远端数据
-   * @param {} 
-   * @return: 
-   */
-  getTest(options = {}): Observable<any> {
-    const api = 'test.php';
-    const params = this.utilServiceService.setUrlStr(options);
-
-    return this.http.get<any>(`${this.host + api + params}`)
-      .pipe(
-        tap(_ => {
-          //do something for current status
-        }),
-        catchError(this.handleError<any>('getTest', {}))
-      );
-  }
 
   /**
    * @description: 获取疾病列表
@@ -38,7 +22,8 @@ export class HomeService {
    * @return: 
    */
   getDiseaseList(options = {}): Observable<any> {
-    const api = 'disease/homePageLoading';
+    //const api = 'disease/homePageLoading';
+    const api = 'diseaseList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -46,7 +31,7 @@ export class HomeService {
         tap(_ => {
           //do something for current status
         }),
-        catchError(this.handleError<any>('getDiseaseList', {}))
+        catchError(this.handleError<any>('getDiseaseList', []))
       );
   }
 
@@ -56,7 +41,8 @@ export class HomeService {
    * @return: 
    */
   getDiseaseDetail(options = {}): Observable<any> {
-    const api = 'disease/homePageClick';
+    //const api = 'disease/homePageClick';
+    const api = 'diseaseDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -74,7 +60,8 @@ export class HomeService {
    * @return: 
    */
   getLatestNewsList(options = {}): Observable<any> {
-    const api = 'topNews/homePageLoading';
+    //const api = 'topNews/homePageLoading';
+    const api = 'newsList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -82,7 +69,7 @@ export class HomeService {
         tap(_ => {
           //do something for current status
         }),
-        catchError(this.handleError<any>('getLatestNewsList', {}))
+        catchError(this.handleError<any>('getLatestNewsList', []))
       );
   }
 
@@ -92,7 +79,8 @@ export class HomeService {
    * @return: 
    */
   getNewsDetail(options = {}): Observable<any> {
-    const api = 'topNews/homePageClick';
+    //const api = 'topNews/homePageClick';
+    const api = 'newsDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -110,7 +98,8 @@ export class HomeService {
    * @return: 
    */
   getDepartmentList(options = {}): Observable<any> {
-    const api = 'section/navigationBarClick';
+    //const api = 'section/navigationBarClick';
+    const api = 'departmentList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -118,7 +107,7 @@ export class HomeService {
         tap(_ => {
           //do something for current status
         }),
-        catchError(this.handleError<any>('getDepartmentList', {}))
+        catchError(this.handleError<any>('getDepartmentList', []))
       );
   }
 
@@ -128,7 +117,8 @@ export class HomeService {
    * @return: 
    */
   getDepartmentDetail(options = {}): Observable<any> {
-    const api = 'section/sectionNameClick';
+    //const api = 'section/sectionNameClick';
+    const api = 'departmentDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)

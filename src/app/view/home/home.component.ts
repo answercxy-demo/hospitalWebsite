@@ -68,23 +68,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-
-    this.getTest();
-
     this.getDiseaseList();
 
     this.getLatestNewsList();
-  }
-
-  /**
-   * @description: 获取测试数据 
-   * @param {type} 
-   * @return: 
-   */
-  getTest(): void {
-    this.homeService.getTest().subscribe((test) => {
-      console.log(test);
-    });
   }
 
   /**
