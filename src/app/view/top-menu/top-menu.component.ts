@@ -71,7 +71,7 @@ export class TopMenuComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe((event) => { this.statusChange(location.pathname); console.log(this.activatedRoute)});
+      .subscribe((event) => { this.statusChange(location.pathname); console.log(this.activatedRoute) });
   }
 
   /**
@@ -84,13 +84,18 @@ export class TopMenuComponent implements OnInit {
     let selectedItem;
 
     for (const item of this.menu) {
-      reg = new RegExp(`^${item.link}`);
+      reg = new RegExp(`${item.link}`);
       if (reg.test(link)) {
         item.selected = true;
         selectedItem = item;
         continue;
       }
       item.selected = false;
+    }
+
+    if (!selectedItem) {
+      this.menu[0].selected = true;
+      selectedItem = this.menu[0];
     }
 
     return selectedItem;
