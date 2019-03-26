@@ -17,6 +17,25 @@ export class HomeService {
     private utilServiceService: UtilServiceService) { }
 
   /**
+     * @description: 获取头部图片列表
+     * @param {} 
+     * @return: 
+     */
+  getTopImgs(options = {}): Observable<any> {
+    //const api = 'disease/homePageLoading';
+    const api = 'topImgs.php';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('topImgs', []))
+      );
+  }
+
+  /**
    * @description: 获取疾病列表
    * @param {} 
    * @return: 

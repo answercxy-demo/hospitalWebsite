@@ -13,8 +13,6 @@ export class DiseaseDetailComponent implements OnInit {
 
   name = this.route.snapshot.queryParamMap.get('name');
 
-  content = '<h1>就</h1>';
-
   constructor(private route: ActivatedRoute, private homeService: HomeService) { }
 
   ngOnInit() {

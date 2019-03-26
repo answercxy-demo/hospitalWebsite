@@ -1,4 +1,4 @@
-<app-banners></app-banners>
+<app-banners [data]="data"></app-banners>
 <app-fast-nav></app-fast-nav>
 <!-- 主页主体 -->
 <div class="index-content">
@@ -69,7 +69,7 @@
         <app-home-title [title]="disease_module.title"></app-home-title>
         <div class="content x-list">
             <article *ngFor="let item of disease_module.items"
-                [ngStyle]="{'background': 'url(' + item.img + ') no-repeat cover'}">
+                [ngStyle]="{'background': 'url(' + item.img + ') no-repeat center center'}">
                 <a class="w-100 h-100 ellipsis-line" [routerLink]="[ '/diseaseDetail/' + item.id ]"
                     [queryParams]="{name: item.name}" [ngStyle]="{'background-color': item.color}"
                     href="javascript:void(0)" title="{{item.name}}">{{item.name}}</a>

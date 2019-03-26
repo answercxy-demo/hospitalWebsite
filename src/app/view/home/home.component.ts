@@ -8,6 +8,9 @@ import { HomeService } from '../../service/home.service';
 })
 export class HomeComponent implements OnInit {
 
+  // 头部图片
+  data = '/home';
+
   // 新闻动态模块
   news_module = {
     title: {

@@ -15,7 +15,7 @@ for ($i = 0; $i < 30; $i++) {
             'id' => $i,
             'dName' => '疾病' . $i,
             'recordTime' => '2019-0' . ($i + 1) . '-0' . ($i + 1),
-            'PhotographStore' => ['sUrl' => null]
+            'PhotographStore' => ['sUrl' => 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/2'.$i.'0.jpg']
         ]);
 }
 

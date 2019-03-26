@@ -1,0 +1,4 @@
+app-banners + div {
+    background: url(../../../assets/img/img_bg.png) center center no-repeat;
+    background-size: cover;
+}

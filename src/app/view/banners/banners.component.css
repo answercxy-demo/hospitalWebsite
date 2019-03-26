@@ -1,5 +1,5 @@
 div {
     height: 600px;
-    width: 100%;
-    background: bisque;
+    background-color: bisque !important;
+    background-size: cover !important; 
 }

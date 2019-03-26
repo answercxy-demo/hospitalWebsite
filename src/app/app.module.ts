@@ -64,7 +64,7 @@ import { StaticTitleComponent } from './view/static-title/static-title.component
     DiseaseDetailComponent,
     PageNotFoundComponent,
     DepartmentInfoDetailComponent,
-    StaticTitleComponent
+    StaticTitleComponent,
   ],
   bootstrap: [AppComponent]
 })
