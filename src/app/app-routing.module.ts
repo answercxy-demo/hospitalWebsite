@@ -17,13 +17,13 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, data:{from: '123'} },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'departmentInfo', component: DepartmentInfoComponent },
   { path: 'hospitalGuide', component: HospitalGuideComponent },
   { path: 'hospitalRecruit', component: HospitalRecruitComponent },
-  { path: 'hospitalEnv', component: HospitalEnvComponent },
+  { path: 'hospitalEnv', component: HospitalEnvComponent, data: { from: '/home' } },
   { path: 'newsDetail/:id', component: NewsDetailComponent, data: { from: '/home' } },
   { path: 'diseaseDetail/:id', component: DiseaseDetailComponent, data: { from: '/home' } },
   { path: 'departmentInfoDetail/:id', component: DepartmentInfoDetailComponent, data: { from: '/departmentInfo' } },

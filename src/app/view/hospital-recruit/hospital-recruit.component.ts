@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HospitalRecruitComponent implements OnInit {
 
+  title = {
+    main: '人才招聘',
+    vice: 'RECRUITMENT'
+  };
+
   constructor() { }
 
   ngOnInit() {

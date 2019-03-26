@@ -10,7 +10,7 @@
                 <!-- 新闻动态标题 -->
                 <li class="h-100">
                     <h2 class="spacing">{{news_module.title.main}}</h2>
-                    <h3 class="spacing">{{news_module.title.vice}}</h3>
+                    <h3 class="spacing blue">{{news_module.title.vice}}</h3>
                     <div></div>
                 </li>
                 <!-- 新闻列表 -->
@@ -36,8 +36,9 @@
                 <!-- 新闻动态图片 -->
                 <li class="h-100">
                     <div class="h-100 w-100">
-                        <div *ngFor="let item of news_module.show.sources" class="h-48 w-90"
-                            style="background: url({{item.src}}) no-repeat cover"></div>
+                        <div *ngFor="let item of news_module.show.sources" class="h-48 w-90 bg-green">
+                            <img class="b-center" src="{{item.src}}">
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -57,8 +58,8 @@
         <app-home-title [title]="env_module.title"></app-home-title>
         <div class="w-100">
             <ul class="x-list h-100">
-                <li *ngFor="let item of env_module.items" class="w-25 h-100"
-                    style="background: url({{item.src}}) no-repeat cover">1</li>
+                <li *ngFor="let item of env_module.items" class="w-25 h-100" [ngStyle]="{'background': item.color}"><img
+                        class="b-center" src="{{item.src}}"></li>
             </ul>
         </div>
     </div>
@@ -69,8 +70,9 @@
         <div class="content x-list">
             <article *ngFor="let item of disease_module.items"
                 [ngStyle]="{'background': 'url(' + item.img + ') no-repeat cover'}">
-                <a class="w-100 h-100 ellipsis-line" [routerLink]="[ '/diseaseDetail/' + item.id ]" [queryParams]="{name: item.name}"
-                    [ngStyle]="{'background-color': item.color}" href="javascript:void(0)" title="{{item.name}}">{{item.name}}</a>
+                <a class="w-100 h-100 ellipsis-line" [routerLink]="[ '/diseaseDetail/' + item.id ]"
+                    [queryParams]="{name: item.name}" [ngStyle]="{'background-color': item.color}"
+                    href="javascript:void(0)" title="{{item.name}}">{{item.name}}</a>
             </article>
         </div>
     </div>

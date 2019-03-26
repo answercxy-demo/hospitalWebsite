@@ -27,6 +27,7 @@ import { NewsDetailComponent } from './view/news-detail/news-detail.component';
 import { DiseaseDetailComponent } from './view/disease-detail/disease-detail.component';
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 import { DepartmentInfoDetailComponent } from './view/department-info-detail/department-info-detail.component';
+import { StaticTitleComponent } from './view/static-title/static-title.component';
 
 @NgModule({
   providers: [],
@@ -62,7 +63,8 @@ import { DepartmentInfoDetailComponent } from './view/department-info-detail/dep
     NewsDetailComponent,
     DiseaseDetailComponent,
     PageNotFoundComponent,
-    DepartmentInfoDetailComponent
+    DepartmentInfoDetailComponent,
+    StaticTitleComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -44,13 +44,13 @@ export class HomeComponent implements OnInit {
     },
     items: [
       {
-        src: ''
+        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/2120.jpg', color: 'red'
       }, {
-        src: ''
+        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/1120.jpg', color: '#ed6d46'
       }, {
-        src: ''
+        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/120.jpg', color: '#0789ff'
       }, {
-        src: ''
+        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/20.jpg', color: '#367925'
       }
     ]
   }

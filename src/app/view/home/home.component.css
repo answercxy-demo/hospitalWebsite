@@ -85,6 +85,8 @@ a {
 
 .news-content>.content>ul>li:nth-child(3)>div>div {
     margin: auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .news-content>.content>ul>li:nth-child(3)>div>div:last-child {
@@ -96,12 +98,26 @@ a {
     transform: translateX(10%) scaleX(1.2);
 }
 
+.news-content>.content>ul>li:nth-child(3)>div>div img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
 .about-content video {
     margin: 10px auto;
 }
 
 .env-content>div {
     height: 400px;
+}
+
+.env-content li {
+    position: relative;
+    overflow: hidden;
+}
+.env-content li img {
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .disease-content article {

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
+  title = {
+    main:'联系我们',
+    vice: 'CONTACT US'
+  }
+
   constructor() { }
 
   ngOnInit() {
