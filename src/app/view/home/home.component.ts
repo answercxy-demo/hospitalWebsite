@@ -9,7 +9,9 @@ import { HomeService } from '../../service/home.service';
 export class HomeComponent implements OnInit {
 
   // 头部图片
-  data = '/home';
+  data = [{
+    
+  }];
 
   // 新闻动态模块
   news_module = {
@@ -31,7 +33,7 @@ export class HomeComponent implements OnInit {
     },
     video: {
       source: {
-        src: 'https://107.cdn-vod.huaweicloud.com/asset/2b8ab25bcb75eaebdae188a1013f90a1/670c035f6e416c67f3e5dc2ff2fe070c.mp4',
+        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/play_video/ac4a698ffa95ed0482e6df8374f41522_H.264_338X270_HEAACV1_300.mp4',
         type: 'video/mp4'
       },
       width: 640,
@@ -47,13 +49,13 @@ export class HomeComponent implements OnInit {
     },
     items: [
       {
-        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/2120.jpg', color: 'red'
+        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2120.jpg', color: 'red'
       }, {
-        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/1120.jpg', color: '#ed6d46'
+        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/55.jpg', color: '#ed6d46'
       }, {
-        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/120.jpg', color: '#0789ff'
+        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/120.jpg', color: '#0789ff'
       }, {
-        src: 'https://107.cdn-vod.huaweicloud.com/shield/asset/2b8ab25bcb75eaebdae188a1013f90a1/snapshot/sample/20.jpg', color: '#367925'
+        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/20.jpg', color: '#367925'
       }
     ]
   }

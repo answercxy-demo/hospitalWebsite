@@ -1,2 +1,13 @@
-<div [ngStyle]="{'background': 'url('+bannerSrc+') no-repeat center center'}">
-</div>
+<section class="w-100">
+    <div *ngFor="let banner of banners" class="w-100 h-100" [ngClass]="{'selected': banner.selected}" [ngStyle]="{'background': 'url('+banner.src+') no-repeat center center'}">
+        
+    </div>
+    <article class="content">
+            
+    </article>
+    <ul>
+        <li class="mgTop-sm mgBottom-sm" *ngFor="let banner of banners; let i = index">
+            <i class="h-100 w-100" [ngClass]="{'bg-blue': banner.selected}" (click)="chooseBanner(i)"></i>
+        </li>
+    </ul>
+</section>

@@ -10,12 +10,33 @@ export class BannersComponent implements OnInit {
 
   @Input() data: any;
 
-  bannerSrc = '';
+  banners = [];
 
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+
     this.getTopImgs();
+
+    setInterval(() => {
+      this.autoSwitch();
+    }, 5000);
+
+  }
+
+  /**
+   * @description: 选择对应下标的banner显示
+   * @param {type} 
+   * @return: 
+   */
+  chooseBanner(index: number): void {
+    this.banners.forEach((banner, i, banners) => {
+      if (i === index) {
+        banner.selected = true;
+      } else {
+        banner.selected = false;
+      }
+    })
   }
 
   /**
@@ -25,8 +46,36 @@ export class BannersComponent implements OnInit {
    */
   getTopImgs(): void {
     this.homeService.getTopImgs().subscribe((items) => {
-      this.bannerSrc = items[0].src;
+      this.banners = items.map((item, index) => {
+        let banner = {
+          src: item.src,
+          selected: false
+        }
+        if (index === 0) {
+          banner.selected = true;
+        }
+        return banner;
+      });
     });
+  }
+
+  /**
+   * @description: 头部图片自动切换
+   * @param {type} 
+   * @return: 
+   */
+  autoSwitch(): void {
+    let switchToIndex = 0;
+    this.banners.forEach((banner, index, banners) => {
+      const LENGTH = banners.length
+      if (banner.selected) {
+        banner.selected = false;
+        if (index !== LENGTH - 1) {
+          switchToIndex = index + 1;
+        }
+      }
+    });
+    this.banners[switchToIndex].selected = true;
   }
 
 }

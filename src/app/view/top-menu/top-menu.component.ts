@@ -71,7 +71,7 @@ export class TopMenuComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe((event) => { this.statusChange(location.pathname); console.log(this.activatedRoute) });
+      .subscribe((event) => { this.statusChange(location.pathname); });
   }
 
   /**

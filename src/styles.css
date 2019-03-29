@@ -143,6 +143,10 @@ button:disabled {
   width: 30%;
 }
 
+.w-50 {
+  width: 50%;
+}
+
 .w-70 {
   width: 70%;
 }

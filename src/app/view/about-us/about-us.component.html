@@ -1,10 +1,37 @@
 <app-banners></app-banners>
 <app-fast-nav></app-fast-nav>
-<div>
+<div class="box mgBottom-lg pdBottom-lg">
   <div class="content">
     <!-- 医院简介 -->
-    <section></section>
+    <section>
+      <article class="w-50 f-left pdLeft-sm pdRight-lg">
+        <h2 class="t-center spacing">
+          {{aboutUs.text.title.main}}<span class="blue">{{aboutUs.text.title.vice}}</span>
+        </h2>
+        <div>
+          {{aboutUs.text.content}}
+        </div>
+      </article>
+      <article class="w-50 f-right">
+        <img class="w-100" src="{{aboutUs.img[0]}}">
+        <img class="w-100 mgTop-sm" src="{{aboutUs.img[1]}}">
+      </article>
+    </section>
+    <div class="f-clear"></div>
+
     <!-- 专家介绍 -->
-    <section></section>
+    <section class="mgTop-lg pdTop-lg">
+      <h2 class="t-center spacing">
+        {{experts.title.main}}<span class="blue">{{experts.title.vice}}</span>
+      </h2>
+      <div class="x-list">
+        <article class="t-center" *ngFor="let item of experts.expertList">
+          <img src="{{item.img}}">
+          <label class="bg-blue">{{item.name}}</label>
+          <div>{{item.describe}}</div>
+        </article>
+      </div>
+      <div class="f-clear"></div>
+    </section>
   </div>
 </div>

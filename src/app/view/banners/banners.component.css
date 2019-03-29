@@ -1,5 +1,32 @@
-div {
+section {
     height: 600px;
-    background-color: bisque !important;
-    background-size: cover !important; 
+    position: relative;
+}
+div {
+    position: absolute;
+    background-size: cover !important;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+div.selected {
+    opacity: 1;
+}
+
+ul {
+  position: absolute;
+  right: 60px;  
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+li {
+    height: 40px;
+    width: 5px;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+i {
+    display: block;
 }

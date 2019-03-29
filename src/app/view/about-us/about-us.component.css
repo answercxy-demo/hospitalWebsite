@@ -1,4 +1,65 @@
-app-banners + div {
+.box {
+    margin-top: 150px;
     background: url(../../../assets/img/img_bg.png) center center no-repeat;
     background-size: cover;
+}
+
+.box .content>section:first-child {
+}
+
+.box .content>section h2 {
+    font-size: 180%;
+    font-weight: 500;
+}
+
+.box .content>section h2 span {
+    font-size: 20px;
+    vertical-align: bottom;
+    vertical-align: sub;
+}
+
+.box .content>section:first-child article {
+    min-height: 100%;
+}
+
+.box .content>section:first-child article img {
+    border-radius: 10px;
+}
+
+
+.box .content>section:first-child article:first-child>div {
+    line-height: 2em;
+    text-indent: 2em;
+}
+
+
+.box .content>section:last-child article {
+    margin-right: 60px;
+    width: 270px;
+}
+
+.box .content>section:last-child article:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.box .content>section:last-child article>label {
+    color: #f0f0f0;
+    font-size: 18px;
+    padding: 7px 25px;
+    letter-spacing: 0.4em; 
+    position: relative;
+    top: -17px;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, #00ACDB, #39AF78);
+}
+
+.box .content>section:last-child article>div {
+    color: #999999;
+}
+
+.box .content>section:last-child article img {
+    display: block;
+    width: 270px;
+    max-height: 378px; 
+    border-radius: 10px;
 }
