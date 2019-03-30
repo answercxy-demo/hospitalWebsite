@@ -1,7 +1,9 @@
 section {
     height: 600px;
     position: relative;
+    overflow: hidden;
 }
+
 div {
     position: absolute;
     background-size: cover !important;
@@ -11,6 +13,19 @@ div {
 
 div.selected {
     opacity: 1;
+}
+
+article {
+    position: relative;
+    padding-top: 420px;
+}
+
+article h1, article h2{
+    color: #f0f0f0;
+}
+
+article h1 {
+    margin-bottom: 0; 
 }
 
 ul {

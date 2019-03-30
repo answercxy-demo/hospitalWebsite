@@ -1,0 +1,45 @@
+.content>nav {
+    height: 180px;
+}
+
+.content>nav>section {
+    border-width: 2px !important;
+    border-color: #00ACDB !important;
+    border: none;
+    border-bottom: solid;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.content>nav>section:hover {
+    opacity: 0.6;
+}
+
+.content>nav>section.selected {    
+    border: solid;
+    border-bottom: none;
+}
+
+.content>nav>section>label {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.content>nav>section>label>img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.content>article {
+    line-height: 2em;
+    margin: 150px 0;
+    padding: 0px 90px;
+    border-left: solid 1px #cccccc;
+    border-right: solid 1px #cccccc;
+}

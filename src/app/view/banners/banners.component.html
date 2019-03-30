@@ -1,11 +1,13 @@
 <section class="w-100">
-    <div *ngFor="let banner of banners" class="w-100 h-100" [ngClass]="{'selected': banner.selected}" [ngStyle]="{'background': 'url('+banner.src+') no-repeat center center'}">
-        
+    <div *ngFor="let banner of banners" class="w-100 h-100" [ngClass]="{'selected': banner.selected}"
+        [ngStyle]="{'background': 'url('+banner.src+') no-repeat center center'}">
+
     </div>
-    <article class="content">
-            
+    <article class="content spacing" [ngStyle]="{'font-size': title.size, 'top': title.top}">
+        <h1>{{title.main}}</h1>
+        <h2 class="mgTop-sm">{{title.vice}}</h2>
     </article>
-    <ul>
+    <ul *ngIf="banners.length>1">
         <li class="mgTop-sm mgBottom-sm" *ngFor="let banner of banners; let i = index">
             <i class="h-100 w-100" [ngClass]="{'bg-blue': banner.selected}" (click)="chooseBanner(i)"></i>
         </li>

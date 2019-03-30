@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  bannersData = {
+    title: {
+      main: 'About us',
+      vice: '',
+      size: '2em',
+      top: '-2em'
+    }
+  }
+
   aboutUs = {
     img: [
       `https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`,

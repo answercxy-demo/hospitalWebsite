@@ -1,5 +1,14 @@
 <app-banners></app-banners>
 <app-fast-nav></app-fast-nav>
 <div class="content">
-  就医环境
+  <app-home-title [title]="env_title"></app-home-title>
+  <article class="env">
+    <section class="bg-orange f-left" *ngFor="let item of env_items" [ngStyle]="{'background': 'url('+item.src+') center center no-repeat'}">
+    </section>
+  </article>
+  <app-home-title [title]="healing_title"></app-home-title>
+  <article>
+    <section class="bg-orange f-left mgRight-md mgBottom-md" *ngFor="let item of healing_items" [ngStyle]="{'background': 'url('+item.src+') center center no-repeat'}">
+    </section>
+  </article>
 </div>

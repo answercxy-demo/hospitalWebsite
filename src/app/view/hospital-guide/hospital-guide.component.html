@@ -1,4 +1,17 @@
-<app-banners></app-banners>
-<div class="content">
-  就医指南
+<app-banners [data]="bannerData"></app-banners>
+<div class="content mgTop-lg pdTop-lg">
+  <nav class="x-list mgBottom-lg">
+    <section *ngFor="let item of nav" class="w-25 h-100 pdTop-md t-center" [ngClass]="{'selected': item.selected}"
+      (click)="toSelectedPart(item.to)">
+      <label [ngStyle]="{'background': item.color}">
+        <img src="../../../assets/icon/icon-{{item.icon}}.png">
+      </label>
+      <h3>{{item.name}}</h3>
+    </section>
+  </nav>
+  <div class="f-clear"></div>
+  <article>
+    内容<br>
+    {{content}}
+  </article>
 </div>

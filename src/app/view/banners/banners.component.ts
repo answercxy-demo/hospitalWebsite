@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from '../../service/home.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-banners',
@@ -12,15 +13,46 @@ export class BannersComponent implements OnInit {
 
   banners = [];
 
+  title = {
+    main: '',
+    vice: '',
+    size: '1em',
+    top: 0
+  };
+
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+
+    this.dataInit();
 
     this.getTopImgs();
 
     setInterval(() => {
       this.autoSwitch();
     }, 5000);
+
+  }
+
+  /**
+   * @description: 处理外部传入数据 
+   * @param {type} 
+   * @return: 
+   */
+  dataInit(): void {
+    let data = this.data;
+    let title = this.title;
+
+    try {
+      if (data && data.title) {
+        title.main = data.title.main;
+        title.vice = data.title.vice;
+        title.size = data.title.size;
+        title.top = data.title.top;
+      }
+    } catch (err) {
+      console.error(err);
+    }
 
   }
 
@@ -65,17 +97,19 @@ export class BannersComponent implements OnInit {
    * @return: 
    */
   autoSwitch(): void {
-    let switchToIndex = 0;
-    this.banners.forEach((banner, index, banners) => {
-      const LENGTH = banners.length
-      if (banner.selected) {
-        banner.selected = false;
-        if (index !== LENGTH - 1) {
-          switchToIndex = index + 1;
+    if (this.banners.length > 1) {
+      let switchToIndex = 0;
+      this.banners.forEach((banner, index, banners) => {
+        const LENGTH = banners.length
+        if (banner.selected) {
+          banner.selected = false;
+          if (index !== LENGTH - 1) {
+            switchToIndex = index + 1;
+          }
         }
-      }
-    });
-    this.banners[switchToIndex].selected = true;
+      });
+      this.banners[switchToIndex].selected = true;
+    }
   }
 
 }
