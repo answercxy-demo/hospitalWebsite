@@ -8,7 +8,7 @@
     border: none;
     border-bottom: solid;
     cursor: pointer;
-    transition: all 0.5s;
+    transition: opacity 0.5s;
 }
 
 .content>nav>section:hover {
