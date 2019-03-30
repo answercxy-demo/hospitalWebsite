@@ -26,7 +26,7 @@
                                     <a href="javascript:vodi(0)" [routerLink]="[ '/newsDetail/' + item.id ]"
                                         [queryParams]="{title: item.title}">
                                         <h3 class="spacing">{{item.title}}</h3>
-                                        <span>{{item.content}}</span>
+                                        <span class="e" [innerHTML]="item.content"></span>
                                     </a>
                                 </li>
                             </ul>

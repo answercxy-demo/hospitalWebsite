@@ -108,6 +108,7 @@ export class HomeComponent implements OnInit {
    */
   getLatestNewsList(): void {
     this.homeService.getLatestNewsList().subscribe((list) => {
+      const REG = new RegExp("<[^>]+>",'g');
 
       for (let item of list) {
         // 新闻列表构造
@@ -116,8 +117,8 @@ export class HomeComponent implements OnInit {
           year: item.primeTime.substr(0, 4),
           month: item.primeTime.substr(5, 2),
           day: item.primeTime.substr(8, 2),
-          title: item.headline,
-          content: item.particulars.substr(0, 50)
+          title: item.headLine,
+          content: item.particulars.replace(REG, '').substr(0, 50)
         });
 
         // 新闻列表展示图片构造

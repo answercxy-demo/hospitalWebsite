@@ -9,9 +9,9 @@ import { UtilServiceService } from './util-service.service';
 })
 export class HomeService {
 
-  //host = 'http://www.xiyubaba.com:8083/psychiatricHospital/exrenal/';
+  host = 'http://www.xiyubaba.com:8083/psychiatricHospital/exrenal/';
   //host = '//127.0.0.1/fixtures/hospital/';
-  host = '//www.xiyubaba.com/fixtures/hospital/';
+  //host = '//www.xiyubaba.com/fixtures/hospital/';
 
   constructor(private http: HttpClient,
     private utilServiceService: UtilServiceService) { }
@@ -41,8 +41,8 @@ export class HomeService {
    * @return: 
    */
   getDiseaseList(options = {}): Observable<any> {
-    //const api = 'disease/homePageLoading';
-    const api = 'diseaseList.php';
+    const api = 'disease/homePageLoading';
+    //const api = 'diseaseList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -60,8 +60,8 @@ export class HomeService {
    * @return: 
    */
   getDiseaseDetail(options = {}): Observable<any> {
-    //const api = 'disease/homePageClick';
-    const api = 'diseaseDetail.php';
+    const api = 'disease/homePageClick';
+    //const api = 'diseaseDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -79,8 +79,8 @@ export class HomeService {
    * @return: 
    */
   getLatestNewsList(options = {}): Observable<any> {
-    //const api = 'topNews/homePageLoading';
-    const api = 'newsList.php';
+    const api = 'topNews/homePageLoading';
+    //const api = 'newsList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -98,8 +98,8 @@ export class HomeService {
    * @return: 
    */
   getNewsDetail(options = {}): Observable<any> {
-    //const api = 'topNews/homePageClick';
-    const api = 'newsDetail.php';
+    const api = 'topNews/homePageClick';
+    //const api = 'newsDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -117,8 +117,8 @@ export class HomeService {
    * @return: 
    */
   getDepartmentList(options = {}): Observable<any> {
-    //const api = 'section/navigationBarClick';
-    const api = 'departmentList.php';
+    const api = 'section/navigationBarClick';
+    //const api = 'departmentList.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)
@@ -136,8 +136,8 @@ export class HomeService {
    * @return: 
    */
   getDepartmentDetail(options = {}): Observable<any> {
-    //const api = 'section/sectionNameClick';
-    const api = 'departmentDetail.php';
+    const api = 'section/sectionNameClick';
+    //const api = 'departmentDetail.php';
     const params = this.utilServiceService.setUrlStr(options);
 
     return this.http.get<any>(`${this.host + api + params}`)

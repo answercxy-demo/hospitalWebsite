@@ -13,6 +13,7 @@ for ($i = 0; $i < 4; $i++) {
     array_push($arr,
         [
             'id' => $i,
+            'headLine' => '标题' . $i,
             'headline' => '标题' . $i,
             'primeTime' => '2019-0' . ($i + 1) . '-0' . ($i + 1),
             'particulars' => '内容' . $i,

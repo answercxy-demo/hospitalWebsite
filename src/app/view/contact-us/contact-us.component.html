@@ -1,1 +1,17 @@
 <app-static-title [title]="title"></app-static-title>
+<a class="w-100 mgTop-md" target="_blank"
+    href="https://map.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D%E5%85%B4%E4%B9%89%E4%BA%BA%E5%AE%89%E7%B2%BE%E7%A5%9E%E7%97%85%E5%8C%BB%E9%99%A2">
+</a>
+<div class="content mgTop-lg pdTop-lg">
+    <app-home-title [title]="findTitle"></app-home-title>
+    <ul class="x-list">
+        <li class="w-50 h-100" *ngFor="let item of items">
+            <i class="h-100" [ngStyle]="{'background': 'url(../../../assets/icon/icon-'+item.icon+'.png) no-repeat center center'}"></i>
+            <label>
+                <h3>{{item.name}}</h3>
+                <h4>{{item.method}}</h4>
+            </label>
+        </li>
+    </ul>
+    <div class="f-clear"></div>
+</div>
