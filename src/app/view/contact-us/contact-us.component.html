@@ -6,7 +6,8 @@
     <app-home-title [title]="findTitle"></app-home-title>
     <ul class="x-list">
         <li class="w-50 h-100" *ngFor="let item of items">
-            <i class="h-100" [ngStyle]="{'background': 'url(../../../assets/icon/icon-'+item.icon+'.png) no-repeat center center'}"></i>
+            <i class="h-100"
+                [ngStyle]="{'background': 'url(../../../assets/icon/icon-'+item.icon+'.png) no-repeat center center'}"></i>
             <label>
                 <h3>{{item.name}}</h3>
                 <h4>{{item.method}}</h4>
@@ -15,3 +16,19 @@
     </ul>
     <div class="f-clear"></div>
 </div>
+<aside class="w-100 pdTop-sm">
+    <app-home-title [title]="contactTitle"></app-home-title>
+    <form class="x-list content mgTop-lg pdTop-lg">
+        <section class="w-50">
+            <div class="mgBottom-lg" *ngFor="let item of inputList">
+                <img src='../../../assets/icon/icon-{{item.icon}}.png'>
+                <input class="w-80 " type="text" placeholder="{{item.placeholder}}">
+            </div>
+        </section>
+        <section class="w-50">
+            <textarea class="w-100" placeholder="{{textareaTip}}" name="message"></textarea>
+        </section>
+        <button class="bd-blue blue" type="button">提交</button>
+    </form>
+    <div class="f-clear"></div>
+</aside>

@@ -33,3 +33,72 @@ ul li label h4 {
     line-height: 2em;
     font-size: 14px;
 }
+
+aside {
+    height: 620px;
+    background: #F1F8F9;
+}
+
+form input {
+    display: block;
+    height: 50px;
+    padding-left: 50px !important;
+}
+
+form textarea {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 210px;
+    max-height: 210px;
+}
+
+form>section>div {
+    position: relative;
+}
+
+form>section>div>img {
+    position: absolute;
+    left: 18px;
+    top: 15px;
+}
+
+form>section input, form>section textarea {
+    outline: none;
+    border: solid 1px #e7dede;
+    border-radius: 2px;
+    padding: 1em;
+}
+
+form>section textarea:focus, form>section input:focus {
+    border-color: #00ACDB;
+}
+
+form>section>div:last-child {
+    margin-bottom: 0;
+}
+
+form button {
+    position: relative;
+    font-size: 1.6em;
+    padding: 0.5em 1.5em;
+    margin: 50px auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 0.5s;
+    outline: none;
+}
+
+form button:hover {
+    background: #00ACDB;
+    border: none;
+    border-radius: 2em;
+    color: #f0f0f0;
+}
+
+form button:focus {
+    background: #00ACbb;
+}

@@ -17,6 +17,13 @@ export class ContactUsComponent implements OnInit {
     vice: 'HOW TO FIND US'
   }
 
+  contactTitle = {
+    main: '联系我们',
+    vice: 'CONTACT US'
+  }
+
+  textareaTip = '您的留言';
+
   items = [
     {
       icon: 'car',
@@ -26,6 +33,22 @@ export class ContactUsComponent implements OnInit {
       icon: 'bus',
       name: '公交车',
       method: '乘坐2路6路公交车到龙井客运北站下车后往龙井农贸市场方向行走500米'
+    }
+  ];
+
+  inputList = [
+    {
+      name: 'name',
+      icon: 'name',
+      placeholder: '您的名字'
+    }, {
+      name: 'phone',
+      icon: 'phone',
+      placeholder: '您的电话'
+    }, {
+      name: 'email',
+      icon: 'email',
+      placeholder: '您的邮箱'
     }
   ]
 
