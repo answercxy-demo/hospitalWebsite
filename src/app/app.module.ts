@@ -28,6 +28,7 @@ import { DiseaseDetailComponent } from './view/disease-detail/disease-detail.com
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 import { DepartmentInfoDetailComponent } from './view/department-info-detail/department-info-detail.component';
 import { StaticTitleComponent } from './view/static-title/static-title.component';
+import { HospitalRecruitDetailComponent } from './view/hospital-recruit-detail/hospital-recruit-detail.component';
 
 @NgModule({
   providers: [],
@@ -65,6 +66,7 @@ import { StaticTitleComponent } from './view/static-title/static-title.component
     PageNotFoundComponent,
     DepartmentInfoDetailComponent,
     StaticTitleComponent,
+    HospitalRecruitDetailComponent,
   ],
   bootstrap: [AppComponent]
 })

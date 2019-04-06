@@ -1,0 +1,24 @@
+.content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content>h3 {
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.content>h3::before {
+    content: '';
+    float: left;
+    position: relative;
+    left: -20px;
+    height: 25px;
+    width: 3px;
+    background-color: #00ACDB;
+}
+
+.info {
+    min-height: 300px;
+    position: relative;
+}

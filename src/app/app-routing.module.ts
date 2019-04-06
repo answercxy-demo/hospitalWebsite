@@ -11,13 +11,14 @@ import { DepartmentInfoComponent } from './view/department-info/department-info.
 
 import { NewsDetailComponent } from './view/news-detail/news-detail.component';
 import { DiseaseDetailComponent } from './view/disease-detail/disease-detail.component';
-import { DepartmentInfoDetailComponent } from './view/department-info-detail/department-info-detail.component'
+import { DepartmentInfoDetailComponent } from './view/department-info-detail/department-info-detail.component';
+import { HospitalRecruitDetailComponent } from './view/hospital-recruit-detail/hospital-recruit-detail.component';
 
 import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, data:{from: '123'} },
+  { path: 'home', component: HomeComponent, data:{from: 'test'} },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'departmentInfo', component: DepartmentInfoComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'newsDetail/:id', component: NewsDetailComponent, data: { from: '/home' } },
   { path: 'diseaseDetail/:id', component: DiseaseDetailComponent, data: { from: '/home' } },
   { path: 'departmentInfoDetail/:id', component: DepartmentInfoDetailComponent, data: { from: '/departmentInfo' } },
+  { path: 'hospitalRecruitDetail/:id', component: HospitalRecruitDetailComponent, data: { from: '/hospitalRecruitDetail' } },
   { path: '**', component: PageNotFoundComponent }
 ];
 

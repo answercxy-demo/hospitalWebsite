@@ -1,2 +1,21 @@
 <app-static-title [title]="title"></app-static-title>
-<div>暂无信息</div>
+<div class="box mgTop-lg mgBottom-lg">
+    <div class="content mgTop-sm">
+        <!-- 招聘类型 -->
+        <ul class="f-left w-20">
+            <li *ngFor="let item of typeList" class="pdLeft-md pdRight-md mgTop-md mgBottom-lg"
+                [ngClass]="{'selected blue': item.selected}">
+                <a class="w-100 h-100" (click)="getDetailList(item.id)">{{item.name}}</a>
+            </li>
+        </ul>
+        <!-- 招聘列表 -->
+        <ul class="f-right w-80">
+            <li *ngFor="let item of detailList" class="pdLeft-md pdRight-md">
+                <a class="w-100 h-100" href="javascript:void(0)" [routerLink]="[ '/hospitalRecruitDetail/' + item.id ]"
+                    [queryParams]="{title: item.title}">{{item.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class=" f-clear">
+    </div>
+</div>

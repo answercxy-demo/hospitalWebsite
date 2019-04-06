@@ -1,0 +1,19 @@
+article {
+    height: 200px;
+    color: #ffffff;
+    background: url(../../../assets/img/static_title.png) no-repeat center;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 220%;
+}
+
+h1, h2 {
+    font-weight: 500;
+}
+
+h2 {
+    letter-spacing: 0.25em;
+    font-weight: 600;
+}
