@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../service/home.service';
+import { StaticPath } from '../../common/static-path';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,11 @@ import { HomeService } from '../../service/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  // 头部图片
-  data = [{
-    
-  }];
+  serverPath = this.staticPath.SERVER_PATH;
+
+  bannersData = {
+    apiName: 'home'
+  };
 
   // 新闻动态模块
   news_module = {
@@ -69,7 +71,7 @@ export class HomeComponent implements OnInit {
     items: []
   }
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private staticPath: StaticPath) { }
 
   ngOnInit() {
 
@@ -92,7 +94,7 @@ export class HomeComponent implements OnInit {
         this.disease_module.items.push({
           id: item.id,
           name: item.dName,
-          img: item.PhotographStore.sUrl,
+          img: item.diseaseNameImage ? this.serverPath + item.diseaseNameImage.sUrl : '',
           color: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1)`
         });
 
@@ -108,7 +110,7 @@ export class HomeComponent implements OnInit {
    */
   getLatestNewsList(): void {
     this.homeService.getLatestNewsList().subscribe((list) => {
-      const REG = new RegExp("<[^>]+>",'g');
+      const REG = new RegExp("<[^>]+>", 'g');
 
       for (let item of list) {
         // 新闻列表构造
@@ -126,13 +128,15 @@ export class HomeComponent implements OnInit {
           for (let source of item.pictrueDetails) {
             if (this.news_module.show.sources.length < 2) {
               this.news_module.show.sources.push({
-                src: source.sUrl
+                src: this.serverPath + source.sUrl
               })
             }
           }
         }
 
       }
+
+      this.news_module.list.splice(4, this.news_module.list.length-4);
 
     });
   }

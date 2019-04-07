@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../service/home.service';
+import { StaticPath } from '../../common/static-path';
 
 @Component({
   selector: 'app-hospital-env',
@@ -8,9 +9,15 @@ import { HomeService } from '../../service/home.service';
 })
 export class HospitalEnvComponent implements OnInit {
 
+  serverPath = this.staticPath.SERVER_PATH;
+
   env_title = {
     main: '就医环境',
     vice: 'ENVIRONMENT'
+  };
+
+  bannersData = {
+    apiName: 'hospitalEnv'
   };
 
   healing_title = {
@@ -22,7 +29,7 @@ export class HospitalEnvComponent implements OnInit {
 
   healing_items = []
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private staticPath: StaticPath) { }
 
   ngOnInit() {
 
@@ -38,15 +45,13 @@ export class HospitalEnvComponent implements OnInit {
    * @return: 
    */
   getEnvItems(): void {
-    // this.homeService.getLatestNewsList().subscribe((list)
-    // array.forEach(element => {
-
-    // });
-    for (let i = 0; i < 3; i++) {
-      this.env_items.push({
-        src:`https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/1${Math.floor(Math.random() * 50)}5.jpg`,
-      })
-    }
+    this.homeService.getEnviroment('environment').subscribe((list) => {
+      list.forEach(imgUrl => {
+        this.env_items.push({
+          src: this.serverPath + imgUrl
+        })
+      });
+    });
   }
 
   /**
@@ -55,15 +60,13 @@ export class HospitalEnvComponent implements OnInit {
    * @return: 
    */
   getHealingItems(): void {
-    // this.homeService.getLatestNewsList().subscribe((list)
-    // array.forEach(element => {
-
-    // });
-    for (let i = 0; i < 7; i++) {
-      this.healing_items.push({
-        src:`https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/4${Math.floor(Math.random() * 50)}5.jpg`,
-      })
-    }
+    this.homeService.getEnviroment('garden').subscribe((list) => {
+      list.forEach(imgUrl => {
+        this.healing_items.push({
+          src: this.serverPath + imgUrl
+        })
+      });
+    });
   }
 
 }

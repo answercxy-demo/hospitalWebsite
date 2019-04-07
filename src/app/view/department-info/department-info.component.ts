@@ -15,6 +15,10 @@ export class DepartmentInfoComponent implements OnInit {
 
   items = [];
 
+  bannersData = {
+    apiName: 'departmentInfo'
+  };
+
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {

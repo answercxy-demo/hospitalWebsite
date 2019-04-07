@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from '../../service/home.service';
-import { Title } from '@angular/platform-browser';
+import { StaticPath } from '../../common/static-path';
 
 @Component({
   selector: 'app-banners',
@@ -13,6 +13,8 @@ export class BannersComponent implements OnInit {
 
   banners = [];
 
+  apiName = '';
+
   title = {
     main: '',
     vice: '',
@@ -20,7 +22,9 @@ export class BannersComponent implements OnInit {
     top: 0
   };
 
-  constructor(private homeService: HomeService) { }
+  serverPath = this.staticPath.SERVER_PATH;
+
+  constructor(private homeService: HomeService, private staticPath: StaticPath) { }
 
   ngOnInit() {
 
@@ -42,6 +46,8 @@ export class BannersComponent implements OnInit {
   dataInit(): void {
     let data = this.data;
     let title = this.title;
+
+    this.apiName = data.apiName;
 
     try {
       if (data && data.title) {
@@ -77,10 +83,10 @@ export class BannersComponent implements OnInit {
    * @return: 
    */
   getTopImgs(): void {
-    this.homeService.getTopImgs().subscribe((items) => {
+    this.homeService.getTopImgs(this.apiName).subscribe((items) => {
       this.banners = items.map((item, index) => {
         let banner = {
-          src: item.src,
+          src: this.serverPath + item,
           selected: false
         }
         if (index === 0) {

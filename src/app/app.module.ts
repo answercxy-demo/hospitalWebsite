@@ -30,8 +30,10 @@ import { DepartmentInfoDetailComponent } from './view/department-info-detail/dep
 import { StaticTitleComponent } from './view/static-title/static-title.component';
 import { HospitalRecruitDetailComponent } from './view/hospital-recruit-detail/hospital-recruit-detail.component';
 
+import { StaticPath } from './common/static-path';
+
 @NgModule({
-  providers: [],
+  providers: [StaticPath],
   imports: [
     BrowserModule,
     FormsModule,

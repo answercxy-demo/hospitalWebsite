@@ -60,6 +60,6 @@
 .box .content>section:last-child article img {
     display: block;
     width: 270px;
-    max-height: 378px; 
+    height: 378px; 
     border-radius: 10px;
 }

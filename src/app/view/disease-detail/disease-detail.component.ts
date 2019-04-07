@@ -23,7 +23,7 @@ export class DiseaseDetailComponent implements OnInit {
 
   getDisease(): void {
     this.homeService.getDiseaseDetail({ id: this.id }).subscribe((item) => {
-      document.getElementById(this.id).innerHTML = item.dContents;
+      document.getElementById(this.id).innerHTML = item[0].dContents;
     });
   }
 

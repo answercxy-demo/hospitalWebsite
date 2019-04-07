@@ -23,7 +23,7 @@ export class NewsDetailComponent implements OnInit {
 
   getNewsDetail(): void {
     this.homeService.getNewsDetail({ id: this.id }).subscribe((item) => {
-      document.getElementById(this.id).innerHTML = item.particulars;
+      document.getElementById(this.id).innerHTML = item[0].particulars;
     });
   }
 

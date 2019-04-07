@@ -126,6 +126,7 @@ a {
     line-height: 160px;
     margin-right: 100px;
     margin-bottom: 50px;
+    background-size: cover !important;
 }
 
 .disease-content article a {

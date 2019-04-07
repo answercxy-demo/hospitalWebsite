@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../service/home.service';
+import { StaticPath } from '../../common/static-path';
 
 @Component({
   selector: 'app-about-us',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  serverPath = this.staticPath.SERVER_PATH;
+
   bannersData = {
+    apiName: 'aboutUs',
     title: {
       main: 'About us',
       vice: '',
@@ -18,8 +23,8 @@ export class AboutUsComponent implements OnInit {
 
   aboutUs = {
     img: [
-      `https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`,
-      `https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`
+      //`https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`,
+      //`https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`
     ],
     text: {
       title: {
@@ -40,22 +45,46 @@ export class AboutUsComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(private homeService: HomeService, private staticPath: StaticPath) { }
 
   ngOnInit() {
+
+    this.getAboutUs();
 
     this.getExpertList();
 
   }
 
+  /**
+   * @description: 获取关于我们的信息
+   * @param {type} 
+   * @return: 
+   */
+  getAboutUs(): void {
+    this.homeService.getAboutUs().subscribe((info) => {
+      this.aboutUs.text.content = info.into;
+      for (let item of info.url) {
+        this.aboutUs.img.push(this.serverPath + item.sUrl);
+      }
+    });
+  };
+
+  /**
+   * @description: 获取专家列表信息
+   * @param {type} 
+   * @return: 
+   */
   getExpertList(): void {
-    for (let index = 0; index < 4; index++) {
-      this.experts.expertList.push({
-        name: `专家${index}`,
-        img: `https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2${Math.floor(Math.random() * 50)}0.jpg`,
-        describe: `该专家199${index}年毕业于广东中医药大学临床医学系，工作经验已达${index}年，经验丰富，实力雄厚，很强`
-      })
-    }
+    this.homeService.getAboutDoctor().subscribe((items) => {
+      console.log(items);
+      for (let item of items) {
+        this.experts.expertList.push({
+          name: item.eName,
+          img: item.photoList[0] ? this.serverPath + item.photoList[0].sUrl : '',
+          describe: item.eIntro
+        })
+      }
+    });
   }
 
 }

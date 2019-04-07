@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HospitalGuideComponent implements OnInit {
 
   bannerData = {
+    apiName: 'hospitalGuide',
     title: {
       main: '就医指南',
       vice: 'MEDICAL GUIDE',
