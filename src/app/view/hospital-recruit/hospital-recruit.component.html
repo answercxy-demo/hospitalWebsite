@@ -5,14 +5,15 @@
         <ul class="f-left w-20">
             <li *ngFor="let item of typeList" class="pdLeft-md pdRight-md mgTop-md mgBottom-lg"
                 [ngClass]="{'selected blue': item.selected}">
-                <a class="w-100 h-100" (click)="getDetailList(item.id)">{{item.name}}</a>
+                <a class="w-100 h-100" (click)="getDetailList(item)">{{item.name}}</a>
             </li>
         </ul>
         <!-- 招聘列表 -->
         <ul class="f-right w-80">
+            <span *ngIf="detailList.length===0">暂无数据</span>
             <li *ngFor="let item of detailList" class="pdLeft-md pdRight-md">
-                <a class="w-100 h-100" href="javascript:void(0)" [routerLink]="[ '/hospitalRecruitDetail/' + item.id ]"
-                    [queryParams]="{title: item.title}">{{item.title}}</a>
+                <a class="w-100 h-100" (click)="saveContent(item.majorContents)" href="javascript:void(0)" [routerLink]="[ '/hospitalRecruitDetail/' + item.id ]"
+                    [queryParams]="{title: item.postName, lowerSalary: item.lowerSalary, upperSalary: item.upperSalary, rectuitTime: item.rectuitTime, content: item.majorContents}">{{item.postName}}</a>
             </li>
         </ul>
     </div>

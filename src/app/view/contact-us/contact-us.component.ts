@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -38,7 +39,7 @@ export class ContactUsComponent implements OnInit {
 
   inputList = [
     {
-      name: 'name',
+      name: 'yourName',
       icon: 'name',
       placeholder: '您的名字'
     }, {
@@ -52,9 +53,57 @@ export class ContactUsComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    // this.homeService.submitSuggest({
+    //   yourName: 'mm',
+    //   email: '123@qq.com',
+    //   phone: 1587,
+    //   leaveWord: '留言'
+    // }).subscribe(data=>{alert(data)});
+
   }
+
+  /**
+   * @description: 提交建议
+   * @param {type} 
+   * @return: 
+   */
+  submitSuggest(): void {
+
+    const check = this.check();
+
+    if(check){
+      
+      alert('目前尚不支持');
+      // this.homeService.submitSuggest({}).subscribe(data => {
+
+      // });
+    }
+  }
+
+  /**
+   * @description: 表单校验 
+   * @param {type} 
+   * @return: 
+   */
+  check(): Boolean {
+    const list: any[] = Array.from(document.querySelectorAll('*[data-form-text]'));
+    for (let item of list) {
+      console.log(item.value);
+      if (item.value.length < 1) {
+        alert('不能有空选项');
+        return false;
+      }
+      if (/[#\$%\^&\*]+/g.test(item.value)) {
+        alert('非法字符');
+        return false;
+      }
+    }
+    return true;
+  }
+
+
 
 }

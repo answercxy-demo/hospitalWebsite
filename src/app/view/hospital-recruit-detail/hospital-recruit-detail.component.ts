@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { HomeService } from '../../service/home.service';
 
 @Component({
@@ -13,9 +13,14 @@ export class HospitalRecruitDetailComponent implements OnInit {
 
   title = this.route.snapshot.queryParamMap.get('title');
 
-  constructor(private route: ActivatedRoute, private homeService: HomeService) { }
+  content =  this.route.snapshot.paramMap.get('content') || sessionStorage.getItem('recruitDetail');
+  
+  constructor(private route: ActivatedRoute, private router:Router, private homeService: HomeService) { }
 
   ngOnInit() {
+    if(!this.content) {
+      this.router.navigateByUrl('/hospitalRecruit');
+    }
   }
 
 }

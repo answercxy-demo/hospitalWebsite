@@ -22,13 +22,13 @@
         <section class="w-50">
             <div class="mgBottom-lg" *ngFor="let item of inputList">
                 <img src='../../../assets/icon/icon-{{item.icon}}.png'>
-                <input class="w-80 " type="text" placeholder="{{item.placeholder}}">
+                <input data-form-text name='{{item.name}}' class="w-80 " type="text" placeholder="{{item.placeholder}}">
             </div>
         </section>
         <section class="w-50">
-            <textarea class="w-100" placeholder="{{textareaTip}}" name="message"></textarea>
+            <textarea data-form-text class="w-100" placeholder="{{textareaTip}}" name="message"></textarea>
         </section>
-        <button class="bd-blue blue" type="button">提交</button>
+        <button class="bd-blue blue" type="button" (click)="submitSuggest()">提交</button>
     </form>
     <div class="f-clear"></div>
 </aside>

@@ -46,10 +46,12 @@ export class HospitalEnvComponent implements OnInit {
    */
   getEnvItems(): void {
     this.homeService.getEnviroment('environment').subscribe((list) => {
-      list.forEach(imgUrl => {
-        this.env_items.push({
-          src: this.serverPath + imgUrl
-        })
+      list.forEach((imgUrl, index, list) => {
+        if(index < 3) {
+          this.env_items.push({
+            src: this.serverPath + imgUrl
+          });
+        }
       });
     });
   }
@@ -61,10 +63,12 @@ export class HospitalEnvComponent implements OnInit {
    */
   getHealingItems(): void {
     this.homeService.getEnviroment('garden').subscribe((list) => {
-      list.forEach(imgUrl => {
-        this.healing_items.push({
-          src: this.serverPath + imgUrl
-        })
+      list.forEach((imgUrl, index, list) => {
+        if(index < 7) {
+          this.healing_items.push({
+            src: this.serverPath + imgUrl
+          });
+        }
       });
     });
   }

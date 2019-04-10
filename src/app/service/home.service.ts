@@ -209,6 +209,99 @@ export class HomeService {
   }
 
   /**
+   * @description: 获取就医导航信息 
+   * @param {type} 
+   * @return: 
+   */
+  getHospitalGuide(options = {}): Observable<any> {
+    const api = 'medicalNavigationFirst';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getHospitalGuide', []))
+      );
+  }
+
+  /**
+   * @description: 获取招聘类型列表 
+   * @param {type} 
+   * @return: 
+   */
+  getHospitalRecruitTypeList(options = {}): Observable<any> {
+    const api = 'queryRecruitmentType';
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getHospitalRecruitTypeList', []))
+      );
+  }
+
+  /**
+   * @description: 获取招聘详情列表 
+   * @param {type} 
+   * @return: 
+   */
+  getHospitalRecruitDetailList(id = '', options = {}): Observable<any> {
+    const api = 'queryRecruitments/' + id;
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getHospitalRecruitDetailList', []))
+      );
+  }
+
+  /**
+   * @description: 获取医院招聘详情
+   * @param {type} 
+   * @return: 
+   */
+  getHospitalRecruitDetail(id = '', options = {}): Observable<any> {
+    const api = 'queryRecruitments' + id;
+    const params = this.utilServiceService.setUrlStr(options);
+
+    return this.http.get<any>(`${this.host + api + params}`)
+      .pipe(
+        tap(_ => {
+          //do something for current status
+        }),
+        catchError(this.handleError<any>('getHospitalRecruitDetail', []))
+      );
+  }
+
+  /**
+   * @description: 提交联系我们表单数据
+   * @param {type} 
+   * @return: 
+   */
+  submitSuggest(body = {}, options = {}): Observable<any> {
+    const api = 'contactUs/formOne';
+    const params = this.utilServiceService.setUrlStr(options);
+    const requestBody = new FormData();
+    for(let key in body) {
+      requestBody.append(key, body[key]);
+    }
+
+    return this.http.post<any>(`${this.host + api + params}`, body).pipe(
+      tap(_ => {
+        //do something for current status
+      }),
+      catchError(this.handleError<any>('getHospitalRecruit', []))
+    );
+  }
+
+  /**
    * Handle Http operation that failed.
    * Let the app continue.
    * @param operation - name of the operation that failed

@@ -21,7 +21,7 @@ export class DepartmentInfoDetailComponent implements OnInit {
 
   getDepartmentDetail(): void {
     this.homeService.getDepartmentDetail({ id: this.id }).subscribe((item) => {
-      document.getElementById(this.id).innerHTML = item ? item[0].sContent : '暂无信息';
+      document.getElementById(this.id).innerHTML = item ? item.sContent : '暂无信息';
     });
   }
 

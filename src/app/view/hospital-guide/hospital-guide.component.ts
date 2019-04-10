@@ -1,5 +1,10 @@
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HomeService } from '../../service/home.service';
 
 @Component({
   selector: 'app-hospital-guide',
@@ -18,28 +23,32 @@ export class HospitalGuideComponent implements OnInit {
 
   nav = [
     {
-      name: '门诊须知',
+      name: '',
       to: 'knowledge',
       icon: 'knowledge',
       color: '#00ACDB',
+      content: '',
       selected: true
     }, {
-      name: '预约挂号',
+      name: '',
       to: 'register',
       icon: 'register',
       color: '#FA565F',
+      content: '',
       selected: false
     }, {
-      name: '就医流程',
+      name: '',
       to: 'process',
       icon: 'process1',
       color: '#45C7DA',
+      content: '',
       selected: false
     }, {
-      name: '交通指南',
+      name: '',
       to: 'guide',
       icon: 'guide',
       color: '#4FCD84',
+      content: '',
       selected: false
     }
   ]
@@ -47,11 +56,49 @@ export class HospitalGuideComponent implements OnInit {
   content = '';
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private homeService: HomeService
   ) { }
 
   ngOnInit() {
-    this.toSelectedPart(this.activatedRoute.snapshot.queryParams.to);
+
+    this.bindRouterChange();
+
+    this.getHospitalGuide();
+
+  }
+
+  /**
+   * @description: 监听url参数to的变化
+   * @param {} 
+   * @return: void 
+   */
+  bindRouterChange() {
+    this.activatedRoute.queryParams.subscribe((queryObject) => {
+      const to = queryObject.to;
+      if (!!to) {
+        this.navChange(to);
+        this.contentChange(to);
+      }
+    })
+  }
+
+  /**
+   * @description: 获取医院导航各个模块信息
+   * @param {type} 
+   * @return: 
+   */
+  getHospitalGuide(): void {
+    this.homeService.getHospitalGuide().subscribe((items) => {
+      items.forEach((item, index, self) => {
+        if (index < 4) {
+          this.nav[index].content = item.contents;
+          this.nav[index].name = item.moduleName;
+        }
+      });
+
+      this.toSelectedPart(this.activatedRoute.snapshot.queryParams.to);
+    });
   }
 
   /**
@@ -87,7 +134,6 @@ export class HospitalGuideComponent implements OnInit {
         break;
     }
 
-    console.log(this.nav);
   }
 
   /**
@@ -111,7 +157,11 @@ export class HospitalGuideComponent implements OnInit {
    * @return: 
    */
   contentChange(to: string): void {
-    this.content = `这里的内容是${to}`;
+    for (let item of this.nav) {
+      if (item.to === to) {
+        this.content = item.content;
+      }
+    }
   }
 
 }

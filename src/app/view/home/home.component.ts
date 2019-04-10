@@ -50,15 +50,15 @@ export class HomeComponent implements OnInit {
       vice: 'ENVIROMENT'
     },
     items: [
-      {
-        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2120.jpg', color: 'red'
-      }, {
-        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/55.jpg', color: '#ed6d46'
-      }, {
-        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/120.jpg', color: '#0789ff'
-      }, {
-        src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/20.jpg', color: '#367925'
-      }
+      // {
+      //   src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/2120.jpg', color: 'red'
+      // }, {
+      //   src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/55.jpg', color: '#ed6d46'
+      // }, {
+      //   src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/120.jpg', color: '#0789ff'
+      // }, {
+      //   src: 'https://651.cdn-vod.huaweicloud.com/shield/asset/203f36f3fb707deef9d5a77f27abb873/snapshot/sample/20.jpg', color: '#367925'
+      // }
     ]
   }
 
@@ -75,9 +75,28 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getDiseaseList();
-
     this.getLatestNewsList();
+    
+    this.getEnvironment();
+
+    this.getDiseaseList();
+  }
+
+  /**
+   * @description: 获取就医环境图片 
+   * @param {type} 
+   * @return: 
+   */
+  getEnvironment(): void {
+    this.homeService.getEnviroment('environment').subscribe((items) => {
+      items.forEach((item, index, items) => {
+        if (index < 4) {
+          this.env_module.items.push({
+            src: this.serverPath + item
+          });
+        }
+      });
+    })
   }
 
   /**
@@ -136,7 +155,7 @@ export class HomeComponent implements OnInit {
 
       }
 
-      this.news_module.list.splice(4, this.news_module.list.length-4);
+      this.news_module.list.splice(4, this.news_module.list.length - 4);
 
     });
   }
