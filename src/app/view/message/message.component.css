@@ -1,0 +1,46 @@
+p {
+    padding: 8px 15px;
+    color: #f0f0f0;
+    font-size: 14px;
+    right: 30px;
+    top: 20px;
+    line-height: 22px;
+    position: fixed;
+}
+
+p::before {
+    letter-spacing: 0.2em;
+    font-weight: 900;
+    font-size: 18px;
+    vertical-align: 0px;
+}
+
+.warn {
+    color: #f36f49;
+    border: #f36f49 solid thin;
+    background: #FCF8E2;
+}
+
+.warn::before {
+    content: '!';
+}
+
+.info {
+    color: #00acdb;
+    background: #f5faff;
+    border: solid thin #00acdb;
+}
+
+.info::before {
+    content: 'i';
+}
+
+.success {
+    color: #39af78;
+    border: solid thin #39af78;
+    background: #f5fcfa;
+}
+
+.success::before {
+    content: '√';
+}

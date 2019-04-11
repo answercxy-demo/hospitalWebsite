@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './view/page-not-found/page-not-found.comp
 import { DepartmentInfoDetailComponent } from './view/department-info-detail/department-info-detail.component';
 import { StaticTitleComponent } from './view/static-title/static-title.component';
 import { HospitalRecruitDetailComponent } from './view/hospital-recruit-detail/hospital-recruit-detail.component';
+import { MessageComponent } from './view/message/message.component';
 
 import { StaticPath } from './common/static-path';
 
@@ -69,6 +70,7 @@ import { StaticPath } from './common/static-path';
     DepartmentInfoDetailComponent,
     StaticTitleComponent,
     HospitalRecruitDetailComponent,
+    MessageComponent,
   ],
   bootstrap: [AppComponent]
 })

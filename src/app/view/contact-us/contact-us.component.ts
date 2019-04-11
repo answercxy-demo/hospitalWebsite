@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../service/home.service';
+import { MessageService } from '../../service/message-service.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -53,15 +54,9 @@ export class ContactUsComponent implements OnInit {
     }
   ]
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private messageService: MessageService) { }
 
   ngOnInit() {
-    // this.homeService.submitSuggest({
-    //   yourName: 'mm',
-    //   email: '123@qq.com',
-    //   phone: 1587,
-    //   leaveWord: '留言'
-    // }).subscribe(data=>{alert(data)});
 
   }
 
@@ -73,13 +68,22 @@ export class ContactUsComponent implements OnInit {
   submitSuggest(): void {
 
     const check = this.check();
+    let num = sessionStorage.getItem('contactNum');
 
-    if(check){
-      
-      alert('目前尚不支持');
-      // this.homeService.submitSuggest({}).subscribe(data => {
-
-      // });
+    if (check) {
+      if(!!num && parseInt(num)>10){
+        this.messageService.add('留言已达上限，请下次再来呢', 'warn');
+        return;
+      }
+      let formData = new FormData(document.querySelector('form'));
+      this.homeService.submitSuggest(formData).subscribe(data => {
+        if (data.status === 200) {
+          !!num ? sessionStorage.setItem('contactNum', String(parseInt(num)+1)) : sessionStorage.setItem('contactNum', '1');
+          this.messageService.add('恭喜您，已经留言成功', 'success');
+        } else {
+          this.messageService.add('不好意思，留言好像出了什么小故障呢，请稍后再试', 'warn');
+        }
+      });
     }
   }
 
@@ -93,11 +97,11 @@ export class ContactUsComponent implements OnInit {
     for (let item of list) {
       console.log(item.value);
       if (item.value.length < 1) {
-        alert('不能有空选项');
+        this.messageService.add('不能有空选项', 'warn');
         return false;
       }
       if (/[#\$%\^&\*]+/g.test(item.value)) {
-        alert('非法字符');
+        this.messageService.add('非法字符', 'warn');
         return false;
       }
     }

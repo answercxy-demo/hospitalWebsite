@@ -288,10 +288,6 @@ export class HomeService {
   submitSuggest(body = {}, options = {}): Observable<any> {
     const api = 'contactUs/formOne';
     const params = this.utilServiceService.setUrlStr(options);
-    const requestBody = new FormData();
-    for(let key in body) {
-      requestBody.append(key, body[key]);
-    }
 
     return this.http.post<any>(`${this.host + api + params}`, body).pipe(
       tap(_ => {
