@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from '../../service/home.service';
 import { StaticPath } from '../../common/static-path';
 
@@ -8,6 +8,8 @@ import { StaticPath } from '../../common/static-path';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  player = null;
 
   serverPath = this.staticPath.SERVER_PATH;
 
@@ -76,10 +78,42 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.getLatestNewsList();
-    
+
     this.getEnvironment();
 
     this.getDiseaseList();
+
+    this.playerInit();
+  }
+
+  ngOnDestroy(): void {
+    !!this.player && this.player.dispose();
+  }
+
+  /**
+   * @description: 播放器播放
+   * @param {type} 
+   * @return: 
+   */
+  playerInit(): void {
+    let hwplayerloaded = (<any>window).hwplayerloaded;
+    let HWPlayer = (<any>window).HWPlayer;
+
+    hwplayerloaded(() => {
+      const elementId = `video_${Number(new Date())}`;
+      document.querySelector('video').setAttribute('id', elementId);
+      this.player = new HWPlayer(elementId, {
+        width: this.about_module.video.width,
+        height: this.about_module.video.height
+      }, () => {
+
+      });
+      document.getElementById(elementId).style.margin = 'auto';
+      this.player.src({
+        src: this.about_module.video.source.src,
+        type: this.about_module.video.source.type
+      });
+    })
   }
 
   /**

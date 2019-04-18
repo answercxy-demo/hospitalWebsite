@@ -48,8 +48,8 @@
     <!-- 了解人安 -->
     <div class="about-content t-center">
         <app-home-title [title]="about_module.title"></app-home-title>
-        <video controls width="{{about_module.video.width}}" height="{{about_module.video.height}}">
-            <source src="{{about_module.video.source.src}}" type="{{about_module.video.source.type}}">
+        <video class='video-js vjs-default-skin vjs-big-play-centered' controls width="{{about_module.video.width}}" height="{{about_module.video.height}}">
+            <!-- <source src="{{about_module.video.source.src}}" type="{{about_module.video.source.type}}"> -->
         </video>
     </div>
 
