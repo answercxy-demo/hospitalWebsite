@@ -15,16 +15,17 @@ div.selected {
     opacity: 1;
 }
 
-article {
+strong {
     position: relative;
     padding-top: 420px;
+    display: block;
 }
 
-article h1, article h2{
+strong h1, strong h2{
     color: #f0f0f0;
 }
 
-article h1 {
+strong h1 {
     margin-bottom: 0; 
 }
 

@@ -90,6 +90,10 @@ button:disabled {
   margin: auto;
 }
 
+.content img {
+  max-width: 100%;
+}
+
 .x-list>* {
   float: left;
 }

@@ -53,8 +53,6 @@ export class HospitalGuideComponent implements OnInit {
     }
   ]
 
-  content = '';
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private homeService: HomeService
@@ -159,7 +157,7 @@ export class HospitalGuideComponent implements OnInit {
   contentChange(to: string): void {
     for (let item of this.nav) {
       if (item.to === to) {
-        this.content = item.content;
+        document.querySelector('app-hospital-guide article').innerHTML = item.content;
       }
     }
   }
