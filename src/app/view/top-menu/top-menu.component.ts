@@ -71,7 +71,13 @@ export class TopMenuComponent implements OnInit {
       })
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
-      .subscribe((event) => { this.statusChange(location.pathname); });
+      .subscribe((event) => {
+        // 选中头部标题
+        this.statusChange(location.pathname);
+      
+        // 重新回归顶部
+        document.body.scrollTop = 0;
+      });
   }
 
   /**

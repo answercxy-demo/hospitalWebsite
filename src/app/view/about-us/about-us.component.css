@@ -30,6 +30,7 @@
 .box .content>section:first-child article:first-child>div {
     line-height: 2em;
     text-indent: 2em;
+    font-size: 16px;
 }
 
 
