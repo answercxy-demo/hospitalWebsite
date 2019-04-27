@@ -107,17 +107,9 @@ a {
     margin: 10px auto;
 }
 
-.env-content>div {
-    height: 400px;
-}
-
 .env-content li {
     position: relative;
     overflow: hidden;
-}
-.env-content li img {
-    min-width: 100%;
-    min-height: 100%;
 }
 
 .disease-content article {

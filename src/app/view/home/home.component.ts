@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit {
    * @return: 
    */
   getEnvironment(): void {
-    this.homeService.getEnviroment('environment').subscribe((items) => {
+    this.homeService.getEnviroment('environment/inHome').subscribe((items) => {
       items.forEach((item, index, items) => {
         if (index < 4) {
           this.env_module.items.push({

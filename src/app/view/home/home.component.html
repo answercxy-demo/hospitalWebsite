@@ -57,9 +57,9 @@
     <div class="env-content">
         <app-home-title [title]="env_module.title"></app-home-title>
         <div class="w-100">
-            <ul class="x-list h-100">
-                <li *ngFor="let item of env_module.items" class="w-25 h-100" [ngStyle]="{'background': item.color}"><img
-                        class="b-center" src="{{item.src}}"></li>
+            <ul class="x-list">
+                <li *ngFor="let item of env_module.items" class="w-25" [ngStyle]="{'background': item.color}"><img
+                        class="w-100" src="{{item.src}}"></li>
             </ul>
         </div>
     </div>

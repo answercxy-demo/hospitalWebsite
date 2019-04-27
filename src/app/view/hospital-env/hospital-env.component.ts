@@ -45,7 +45,7 @@ export class HospitalEnvComponent implements OnInit {
    * @return: 
    */
   getEnvItems(): void {
-    this.homeService.getEnviroment('environment').subscribe((list) => {
+    this.homeService.getEnviroment('environment/inHospitalEnv').subscribe((list) => {
       list.forEach((imgUrl, index, list) => {
         if(index < 3) {
           this.env_items.push({
@@ -62,7 +62,7 @@ export class HospitalEnvComponent implements OnInit {
    * @return: 
    */
   getHealingItems(): void {
-    this.homeService.getEnviroment('garden').subscribe((list) => {
+    this.homeService.getEnviroment('garden/inHospitalEnv').subscribe((list) => {
       list.forEach((imgUrl, index, list) => {
         if(index < 7) {
           this.healing_items.push({
