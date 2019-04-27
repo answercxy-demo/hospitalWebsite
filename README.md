@@ -62,7 +62,7 @@
 
 [angular官网](https://angular.io/)
 
-[rxjs指南]([https://](https://github.com/ReactiveX/rxjs/blob/master/README.md))
+[rxjs指南](https://github.com/ReactiveX/rxjs/blob/master/README.md)
 
 ## 后记
 
